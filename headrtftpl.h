@@ -1,0 +1,7 @@
+L("{\\rtf1 \\ansi \\deff0 \\ansicpg1252 \\uc1\n")
+L("\n")
+L("{\\fonttbl\n")
+L("{\\f0 \\fswiss Arial;}\n")
+L("}\n")
+L("{\\header \\qr page \\chpgn \\par}\n")
+L("\\margl720 \\margr720 \\margt720 \\margb720\n")

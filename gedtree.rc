@@ -1,0 +1,1143 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\gedtree.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\gedtree.ico"
+IDR_GEDTRETYPE          ICON    DISCARDABLE     "res\\ged_tre.ico"
+IDR_GEDINTYPE           ICON    DISCARDABLE     "res\\ged_in.ico"
+IDR_GEDPDTYPE           ICON    DISCARDABLE     "res\\ged_pd.ico"
+IDR_GEDILTYPE           ICON    DISCARDABLE     "res\\ged_il.ico"
+IDD_SOURCE              ICON    DISCARDABLE     "res\\source.ico"
+IDD_CITATION            ICON    DISCARDABLE     "res\\citation.ico"
+IDD_EVENT               ICON    DISCARDABLE     "res\\idd_edit.ico"
+IDD_REPO                ICON    DISCARDABLE     "res\\idd_repo.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_VIEW_DROPLINECHART
+    BUTTON      ID_VIEW_INDI
+    BUTTON      ID_VIEW_OPENPEDIGREE
+    BUTTON      ID_VIEW_INDEXOFINDIVIDUALS
+    SEPARATOR
+    BUTTON      ID_VIEW_SOURCES
+    BUTTON      ID_VIEW_REPOSITORIES
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_OPTIONS_CLEANREG,    VIRTKEY, CONTROL, ALT, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F1,          ID_HELP,                VIRTKEY, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    VK_F3,          ID_EDIT_FINDNEXT,       VIRTKEY, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 267, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About GRO"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,205,81,55,14,WS_GROUP
+    CTEXT           "",IDC_ABOUT,7,7,253,65,SS_NOPREFIX,WS_EX_TRANSPARENT
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,75,18,20
+END
+
+IDD_ZOOM DIALOG DISCARDABLE  0, 0, 129, 49
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Scale View"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Scale view to 1:",IDC_STATIC,27,9,52,8
+    EDITTEXT        IDC_SCALE,83,7,18,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,28,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,72,28,50,14
+END
+
+IDD_RELATIVES DIALOG DISCARDABLE  0, 0, 204, 209
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Relatives"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "all direct ancestors (pedigree)",IDC_ANC,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,190,10
+    CONTROL         "direct ancestors (female line)",IDC_ANCFEMALE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,43,190,10
+    CONTROL         "direct ancestors (male line)",IDC_ANCMALE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,25,190,10
+    CONTROL         "all direct descendants",IDC_DESC,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,71,190,10
+    DEFPUSHBUTTON   "OK",IDOK,48,188,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,109,188,50,14
+    CONTROL         "direct descendants (male lines)",IDC_DESCMALE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,89,190,10
+    CONTROL         "direct descendants (female lines)",IDC_DESCFEMALE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,107,190,10
+    CONTROL         "relatives with common Y-chromosome (males only)",
+                    IDC_YCHROM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,137,
+                    190,10
+    CONTROL         "relatives with common mitochondrial DNA",IDC_MTDNA,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,155,190,10
+END
+
+IDD_DATE DIALOG DISCARDABLE  0, 0, 394, 138
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Date"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_DATETYPE,7,7,186,159,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_PHRASETEXT,201,7,186,14,ES_AUTOHSCROLL | WS_GROUP
+    GROUPBOX        "after",IDC_STATICAFTER,7,25,186,52
+    COMBOBOX        IDC_MONTH,17,37,64,123,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_DAY,89,36,18,14,ES_AUTOHSCROLL
+    LTEXT           ",",IDC_STATIC,111,42,8,8
+    EDITTEXT        IDC_YEAR,120,36,40,14,ES_AUTOHSCROLL
+    CONTROL         "BC",IDC_BC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,165,
+                    34,26,10
+    CONTROL         "AD",IDC_AD,"Button",BS_AUTORADIOBUTTON,165,44,26,10
+    CONTROL         "Gregorian calendar",IDC_GREGORIAN,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,16,53,76,10
+    CONTROL         "Julian calendar",IDC_JULIAN,"Button",BS_AUTORADIOBUTTON,
+                    16,65,63,10
+    GROUPBOX        "before",IDC_STATICBEFORE,201,25,186,52,WS_GROUP
+    COMBOBOX        IDC_MONTH2,211,37,64,123,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_DAY2,283,36,18,14,ES_AUTOHSCROLL
+    LTEXT           ",",IDC_STATIC,305,42,8,8
+    EDITTEXT        IDC_YEAR2,314,36,40,14,ES_AUTOHSCROLL
+    CONTROL         "BC",IDC_BC2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,359,
+                    34,26,10
+    CONTROL         "AD",IDC_AD2,"Button",BS_AUTORADIOBUTTON,359,44,26,10
+    CONTROL         "Gregorian calendar",IDC_GREGORIAN2,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,210,53,76,10
+    CONTROL         "Julian calendar",IDC_JULIAN2,"Button",
+                    BS_AUTORADIOBUTTON,210,65,63,10
+    LTEXT           "long formatted date",IDC_LONG,7,82,380,8,SS_NOPREFIX
+    LTEXT           "short date",IDC_SHORT,7,91,380,8,SS_NOPREFIX
+    LTEXT           "GEDCOM date",IDC_GED,7,100,380,8,SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,137,117,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,205,117,50,14
+END
+
+IDD_EVENT DIALOGEX 0, 0, 356, 209
+STYLE WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Event"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CTEXT           "event",IDC_EVENT,8,8,28,8
+    COMBOBOX        IDC_TYPE,43,7,69,135,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_STRING,121,7,228,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "date",IDC_CHANGEDATE,4,26,33,13
+    LTEXT           "date string",IDC_DATE,46,28,303,8,SS_NOPREFIX
+    CTEXT           "place",IDC_STATIC,7,47,28,8
+    EDITTEXT        IDC_PLACE,44,44,305,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "citation",IDC_CHANGESOURCE,4,63,33,13
+    LTEXT           "source string",IDC_SOURCE,46,65,303,8,SS_NOPREFIX
+    LTEXT           "notes",IDC_STATIC,12,82,18,8
+    EDITTEXT        IDC_NOTE,7,93,342,86,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,188,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,75,188,50,14
+    PUSHBUTTON      "Delete Event",IDC_DELETE,284,188,65,14
+END
+
+IDD_FIND DIALOG DISCARDABLE  0, 0, 186, 54
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Find"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Name:",IDC_STATIC,7,10,22,8
+    EDITTEXT        IDC_NAME,38,7,141,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Find",IDOK,37,33,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,98,33,50,14
+END
+
+IDD_CITATION DIALOGEX 0, 0, 293, 175
+STYLE WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Citation"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "source",IDC_CHANGESOURCE,7,7,28,13
+    LTEXT           "source string",IDC_SOURCE,51,9,235,8,SS_NOPREFIX
+    LTEXT           "page(s)",IDC_STATIC,7,27,24,8
+    EDITTEXT        IDC_PAGE,48,24,58,14,ES_AUTOHSCROLL
+    LTEXT           "quality",IDC_STATIC,194,27,21,8
+    COMBOBOX        IDC_QUAY,228,25,58,99,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Actual text from source",IDC_STATIC,7,49,73,8
+    EDITTEXT        IDC_TEXT,7,60,279,79,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,154,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,75,154,50,14
+    PUSHBUTTON      "Remove Citation",IDC_DELETE,222,154,64,14
+END
+
+IDD_SOURCE DIALOGEX 0, 0, 290, 258
+STYLE WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Source"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Author",IDC_STATIC,7,10,22,8
+    EDITTEXT        IDC_AUTHOR,66,7,217,14,ES_AUTOHSCROLL
+    LTEXT           "Title",IDC_STATIC,7,27,14,8
+    EDITTEXT        IDC_TITLE,66,24,217,14,ES_AUTOHSCROLL
+    LTEXT           "Publication",IDC_STATIC,7,45,36,8
+    EDITTEXT        IDC_PUBL,66,42,217,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Repository",IDC_CHANGEREPO,7,59,50,14
+    LTEXT           "repository string",IDC_REPO,69,62,214,8,SS_NOPREFIX
+    LTEXT           "Transcription and/or representation of source:",
+                    IDC_STATIC,7,79,145,8
+    EDITTEXT        IDC_TEXT,22,125,104,51,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,237,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,69,237,50,14
+    PUSHBUTTON      "Delete Source",IDC_DELETE,233,237,50,14
+    CONTROL         "",IDC_IE,"{8856F961-340A-11D0-A96B-00C04FD705A2}",
+                    WS_TABSTOP,137,130,124,58
+    CONTROL         "Tab1",IDC_TAB,"SysTabControl32",0x0,7,95,276,131
+END
+
+IDD_SOURCES DIALOG DISCARDABLE  0, 0, 390, 205
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "List of Sources"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "List1",IDC_SOURCES,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,
+                    7,376,149
+    DEFPUSHBUTTON   "OK",IDOK,7,184,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,67,184,50,14
+    PUSHBUTTON      "Edit",IDC_EDIT,265,184,50,14
+    PUSHBUTTON      "New",IDC_NEW,333,184,50,14
+END
+
+IDD_REPOS DIALOG DISCARDABLE  0, 0, 390, 205
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "List of Repositories"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "List1",IDC_REPOS,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,
+                    7,376,149
+    DEFPUSHBUTTON   "OK",IDOK,7,184,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,67,184,50,14
+    PUSHBUTTON      "Edit",IDC_EDIT,265,184,50,14
+    PUSHBUTTON      "New",IDC_NEW,333,184,50,14
+END
+
+IDD_REPO DIALOG DISCARDABLE  0, 0, 290, 106
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Repository"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Name",IDC_STATIC,7,10,22,8
+    EDITTEXT        IDC_NAME,66,7,217,14,ES_AUTOHSCROLL
+    LTEXT           "Address",IDC_STATIC,7,28,26,8
+    EDITTEXT        IDC_ADDR,66,27,217,30,ES_MULTILINE | ES_WANTRETURN
+    DEFPUSHBUTTON   "OK",IDOK,7,85,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,69,85,50,14
+    PUSHBUTTON      "Delete Repository",IDC_DELETE,197,85,86,14
+END
+
+IDD_PROGRESS DIALOGEX 0, 0, 420, 78
+STYLE DS_MODALFRAME | DS_NOIDLEMSG | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_NOPARENTNOTIFY
+CAPTION "Gedcom Document"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "",IDC_MESSAGE,7,7,406,8
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH,
+                    7,20,406,14
+    LTEXT           "",IDC_DETAIL,7,40,406,8
+    PUSHBUTTON      "Stop",IDCANCEL,184,57,50,14
+END
+
+IDD_SAVECHANGES DIALOG DISCARDABLE  0, 0, 231, 63
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Save Changes?"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            32515,IDC_STATIC,7,7,18,20
+    CTEXT           "Do you want to save changes to this Gedcom document:",
+                    IDC_STATIC,35,7,189,8
+    CTEXT           "DOCUMENT.DAT ?",IDC_FILENAME,35,20,189,8
+    DEFPUSHBUTTON   "&Save",IDYES,7,42,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,65,42,50,14
+    PUSHBUTTON      "&Don't Save",IDNO,174,42,50,14
+END
+
+IDD_DOCSIZE DIALOG DISCARDABLE  0, 0, 248, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Document Size"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "width:",IDC_STATIC,81,9,20,8
+    EDITTEXT        IDC_WIDTH,105,7,40,14,ES_AUTOHSCROLL
+    LTEXT           "height:",IDC_STATIC,7,39,22,8
+    EDITTEXT        IDC_HEIGHT,34,37,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "",IDC_STATIC,82,24,84,40
+    PUSHBUTTON      "Shrink To Fit",IDC_NORMALIZE,36,74,50,14
+    DEFPUSHBUTTON   "OK",IDOK,98,74,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,160,74,50,14
+END
+
+IDD_CONFIRMDELETE DIALOG DISCARDABLE  0, 0, 231, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Delete?"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            32515,IDC_STATIC,7,7,18,20
+    CTEXT           "",IDC_MESSAGE,31,7,193,18
+    DEFPUSHBUTTON   "Don't Delete",IDCANCEL,7,34,67,14
+    PUSHBUTTON      "Delete!",IDC_DELETE,174,34,50,14
+END
+
+IDD_NAME DIALOG DISCARDABLE  0, 0, 355, 82
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Name"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "name",IDC_STATIC,8,8,28,8
+    EDITTEXT        IDC_NAME,43,7,305,14,ES_AUTOHSCROLL
+    LTEXT           "Use slashes around the surname (e.g., Christopher Alan /Mosher/)",
+                    IDC_STATIC,45,23,209,8
+    PUSHBUTTON      "citation",IDC_CHANGESOURCE,4,38,33,13
+    LTEXT           "source string",IDC_SOURCE,45,40,303,8
+    DEFPUSHBUTTON   "OK",IDOK,7,61,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,75,61,50,14
+    PUSHBUTTON      "Delete Name",IDC_DELETE,283,61,65,14,NOT WS_VISIBLE
+END
+
+IDD_NOTES DIALOGEX 0, 0, 293, 175
+STYLE WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Gedcom Notes"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_TEXT,7,7,279,132,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,154,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,75,154,50,14
+    PUSHBUTTON      "Remove Notes",IDC_DELETE,222,154,64,14
+END
+
+IDD_SUBM DIALOG DISCARDABLE  0, 0, 290, 106
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Submitter"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Enter the name and address to be used as the submitter of each GEDCOM document.",
+                    IDC_STATIC,7,7,271,8
+    LTEXT           "Name",IDC_STATIC,7,24,22,8
+    EDITTEXT        IDC_NAME,66,21,217,14,ES_AUTOHSCROLL
+    LTEXT           "Address",IDC_STATIC,7,42,26,8
+    EDITTEXT        IDC_ADDR,66,41,217,30,ES_MULTILINE | ES_WANTRETURN
+    DEFPUSHBUTTON   "OK",IDOK,88,85,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,150,85,50,14
+END
+
+IDD_SEX DIALOG DISCARDABLE  0, 0, 129, 86
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Gender"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Gender",IDC_STATIC,7,7,115,45
+    CONTROL         "Unknown",IDC_UNKNOWN,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,41,16,47,10
+    CONTROL         "Male",IDC_MALE,"Button",BS_AUTORADIOBUTTON,41,27,47,10
+    CONTROL         "Female",IDC_FEMALE,"Button",BS_AUTORADIOBUTTON,41,38,47,
+                    10
+    DEFPUSHBUTTON   "OK",IDOK,7,65,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,72,65,50,14
+END
+
+IDD_CONNECT DIALOG DISCARDABLE  0, 0, 218, 129
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Connect"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Individual Zero",IDC_INDI0,7,7,204,8
+    LTEXT           "is the",IDC_STATIC,7,34,18,8
+    CONTROL         "Parent",IDC_PARENT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,31,19,37,10
+    CONTROL         "Child",IDC_CHILD,"Button",BS_AUTORADIOBUTTON,31,30,37,
+                    10
+    CONTROL         "Spouse",IDC_SPOUSE,"Button",BS_AUTORADIOBUTTON,31,41,37,
+                    10
+    CONTROL         "Sibling",IDC_SIBLING,"Button",BS_AUTORADIOBUTTON,31,52,
+                    37,10
+    LTEXT           "of",IDC_STATIC,75,34,8,8
+    LTEXT           "Individual One",IDC_INDI1,7,65,204,8
+    COMBOBOX        IDC_FAMILY,7,81,204,67,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,51,108,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,116,108,50,14
+END
+
+IDD_UNICODE DIALOG DISCARDABLE  0, 0, 186, 87
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Unicode or ASCII"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Save all Gedcom documents using this character encoding scheme:",
+                    IDC_STATIC,7,7,172,18
+    CONTROL         "ASCII",IDC_ASCII,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    71,32,43,10
+    CONTROL         "Unicode",IDC_UNICODE,"Button",BS_AUTORADIOBUTTON,71,44,
+                    43,10
+    DEFPUSHBUTTON   "OK",IDOK,37,66,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,99,66,50,14
+END
+
+IDD_HOLIDAY DIALOG DISCARDABLE  0, 0, 247, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Holiday"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Holiday:",IDC_STATIC,7,9,26,8
+    COMBOBOX        IDC_HOLIDAY,38,7,125,110,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Year:",IDC_STATIC,178,10,18,8
+    EDITTEXT        IDC_YEAR,200,7,40,14,ES_AUTOHSCROLL
+    LTEXT           "date",IDC_DATE,7,34,233,8,SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,99,58,50,14
+END
+
+IDD_SETUP DIALOG DISCARDABLE  0, 0, 166, 132
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Setup"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDCANCEL,58,111,50,14
+    GROUPBOX        "Start Menu Item",IDC_STATIC,7,7,152,40
+    PUSHBUTTON      "Add",IDC_ADD,23,22,50,14
+    PUSHBUTTON      "Remove",IDC_REMOVE,92,22,50,14
+    PUSHBUTTON      "Uninstall",IDC_UNINSTALL,58,70,50,14
+    GROUPBOX        "Uninstall Application",IDC_STATIC,7,54,152,40
+END
+
+IDD_BIRTH_CALC DIALOG DISCARDABLE  0, 0, 328, 231
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Birth Calculator"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Age",IDC_STATIC,7,7,314,81
+    CONTROL         "",IDC_AGE1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,25,
+                    10,8
+    CONTROL         "",IDC_AGE2,"Button",BS_AUTORADIOBUTTON,26,47,10,8
+    CONTROL         "",IDC_AGE3,"Button",BS_AUTORADIOBUTTON,26,69,10,8
+    EDITTEXT        IDC_YEARS,42,22,31,14,ES_AUTOHSCROLL | WS_GROUP
+    LTEXT           "years",IDC_STATIC,77,25,18,8
+    EDITTEXT        IDC_YEARS2,42,44,31,14,ES_AUTOHSCROLL
+    LTEXT           "years",IDC_STATIC,77,47,18,8
+    EDITTEXT        IDC_MONTHS,101,44,31,14,ES_AUTOHSCROLL
+    LTEXT           "months",IDC_STATIC,136,47,24,8
+    EDITTEXT        IDC_DAYS,168,44,31,14,ES_AUTOHSCROLL
+    LTEXT           "days",IDC_STATIC,203,47,16,8
+    LTEXT           "in the",IDC_STATIC,42,69,18,8
+    EDITTEXT        IDC_YEARS3,66,66,31,14,ES_AUTOHSCROLL
+    LTEXT           "th year of his/her age",IDC_YEAROFAGE,104,69,106,8
+    PUSHBUTTON      "Date",IDC_DATE,7,101,50,14
+    GROUPBOX        "Birth",IDC_STATIC,7,130,314,70
+    LTEXT           "Calculated birth date:",IDC_STATIC,23,145,285,8
+    LTEXT           "birth date",IDC_BIRTH,38,157,270,8,SS_NOPREFIX
+    LTEXT           "Calculated birth date based on ""Census Day"":",
+                    IDC_CENSUS_LABEL,23,171,285,8,SS_NOPREFIX
+    LTEXT           "census birth",IDC_CENSUS_BIRTH,38,182,270,8,SS_NOPREFIX
+    DEFPUSHBUTTON   "&Close",IDOK,138,210,50,14
+    LTEXT           "date input",IDC_DATE_IN,68,104,240,8,SS_NOPREFIX
+END
+
+IDD_PLACE DIALOG DISCARDABLE  0, 0, 443, 271
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Places"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,155,250,50,14
+    CONTROL         "Tree1",IDC_PLACE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_DISABLEDRAGDROP | 
+                    WS_BORDER | WS_TABSTOP,7,7,119,227
+    CONTROL         "List1",IDC_EVENT,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,
+                    129,7,307,227
+END
+
+IDD_REGISTER DIALOG DISCARDABLE  0, 0, 247, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Register"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Name:",IDC_STATIC,7,9,22,8
+    EDITTEXT        IDC_NAME,37,7,203,14,ES_AUTOHSCROLL
+    LTEXT           "Key:",IDC_STATIC,7,31,15,8
+    EDITTEXT        IDC_KEY,37,28,203,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,64,58,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,58,50,14
+END
+
+IDD_WEBSERVER DIALOG DISCARDABLE  0, 0, 186, 110
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Web Server"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "This will allow other people on the network (or the Internet if you're connected) to use their web browsers and see all of the non-private data in all of your open GEDCOM documents.",
+                    IDC_STATIC,7,7,172,34
+    LTEXT           "port:",IDC_STATIC,7,47,15,8
+    EDITTEXT        IDC_PORT,32,45,50,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "(default HTTP port is 80)",IDC_STATIC,91,47,78,8
+    LTEXT           "The server is currently RUNNING.",IDC_RUNNING,7,69,172,
+                    11
+    DEFPUSHBUTTON   "",IDOK,7,89,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,89,50,14
+END
+
+IDD_CHOOSEFONT DIALOG FIXED IMPURE  13, 54, 287, 230
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Font"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "&Font:",1088,7,7,40,9
+    COMBOBOX        1136,7,16,98,76,CBS_SIMPLE | CBS_OWNERDRAWFIXED | 
+                    CBS_AUTOHSCROLL | CBS_SORT | CBS_HASSTRINGS | 
+                    CBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Font st&yle:",1089,110,7,44,9
+    COMBOBOX        1137,110,16,74,76,CBS_SIMPLE | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Size:",1090,189,7,30,9
+    COMBOBOX        1138,190,16,36,76,CBS_SIMPLE | CBS_OWNERDRAWFIXED | 
+                    CBS_AUTOHSCROLL | CBS_SORT | CBS_HASSTRINGS | 
+                    CBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Effects",1072,7,97,98,72,WS_GROUP
+    CONTROL         "Stri&keout",1040,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    13,110,49,10
+    CONTROL         "&Underline",1041,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    13,123,51,10
+    LTEXT           "&Color:",1091,13,136,30,9
+    COMBOBOX        1139,13,146,82,100,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | 
+                    CBS_AUTOHSCROLL | CBS_HASSTRINGS | WS_BORDER | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Sample",1073,110,97,116,43,WS_GROUP
+    CTEXT           "AaBbYyZz",1092,118,111,100,23,SS_NOPREFIX | NOT 
+                    WS_VISIBLE
+    LTEXT           "",1093,7,172,219,20,SS_NOPREFIX | NOT WS_GROUP
+    LTEXT           "Sc&ript:",1094,110,147,30,9
+    COMBOBOX        1140,110,157,116,30,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL | CBS_HASSTRINGS | 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",1,231,16,45,14,WS_GROUP
+    PUSHBUTTON      "Cancel",2,231,32,45,14,WS_GROUP
+    PUSHBUTTON      "&Apply",1026,231,48,45,14,WS_GROUP
+    PUSHBUTTON      "&Help",1038,231,64,45,14,WS_GROUP
+    CONTROL         "Also RESCALE all charts to the new font",IDC_SCALE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,211,143,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 95
+    END
+
+    IDD_ZOOM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 122
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+
+    IDD_RELATIVES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 197
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 202
+    END
+
+    IDD_DATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 387
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 131
+    END
+
+    IDD_EVENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 349
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 202
+    END
+
+    IDD_FIND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 47
+    END
+
+    IDD_CITATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 286
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 168
+    END
+
+    IDD_SOURCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 283
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 251
+    END
+
+    IDD_SOURCES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 383
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+
+    IDD_REPOS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 383
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+
+    IDD_REPO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 283
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 99
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 413
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 71
+    END
+
+    IDD_SAVECHANGES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 224
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 56
+    END
+
+    IDD_DOCSIZE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_CONFIRMDELETE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 224
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_NAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 348
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_NOTES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 286
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 168
+    END
+
+    IDD_SUBM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 283
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 99
+    END
+
+    IDD_SEX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 122
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_CONNECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 211
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 122
+    END
+
+    IDD_UNICODE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_HOLIDAY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_SETUP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 159
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 125
+    END
+
+    IDD_BIRTH_CALC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 321
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 224
+    END
+
+    IDD_PLACE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 436
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 264
+    END
+
+    IDD_REGISTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_WEBSERVER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_DATE DLGINIT
+BEGIN
+    IDC_DATETYPE, 0x403, 8, 0
+0x6e55, 0x6e6b, 0x776f, 0x006e, 
+    IDC_DATETYPE, 0x403, 11, 0
+0x7845, 0x6361, 0x2074, 0x6164, 0x6574, "\000" 
+    IDC_DATETYPE, 0x403, 17, 0
+0x7041, 0x7270, 0x786f, 0x6d69, 0x7461, 0x2065, 0x6164, 0x6574, "\000" 
+    IDC_DATETYPE, 0x403, 15, 0
+0x6550, 0x6972, 0x646f, 0x6f20, 0x2066, 0x6974, 0x656d, "\000" 
+    IDC_DATETYPE, 0x403, 37, 0
+0x7441, 0x7320, 0x6d6f, 0x2065, 0x6974, 0x656d, 0x7720, 0x7469, 0x6968, 
+0x206e, 0x2061, 0x6172, 0x676e, 0x2065, 0x666f, 0x6420, 0x7461, 0x7365, 
+"\000" 
+    IDC_DATETYPE, 0x403, 26, 0
+0x7441, 0x7320, 0x6d6f, 0x2065, 0x6974, 0x656d, 0x6120, 0x7466, 0x7265, 
+0x6120, 0x6420, 0x7461, 0x0065, 
+    IDC_DATETYPE, 0x403, 27, 0
+0x7441, 0x7320, 0x6d6f, 0x2065, 0x6974, 0x656d, 0x6220, 0x6665, 0x726f, 
+0x2065, 0x2061, 0x6164, 0x6574, "\000" 
+    IDC_DATETYPE, 0x403, 15, 0
+0x7345, 0x6974, 0x616d, 0x6574, 0x2064, 0x6164, 0x6574, "\000" 
+    IDC_DATETYPE, 0x403, 16, 0
+0x6143, 0x636c, 0x6c75, 0x7461, 0x6465, 0x6420, 0x7461, 0x0065, 
+    IDC_DATETYPE, 0x403, 21, 0
+0x6e55, 0x6e69, 0x6574, 0x7072, 0x6572, 0x6574, 0x2064, 0x6870, 0x6172, 
+0x6573, "\000" 
+    IDC_DATETYPE, 0x403, 19, 0
+0x6e49, 0x6574, 0x7072, 0x6572, 0x6574, 0x2064, 0x6870, 0x6172, 0x6573, 
+"\000" 
+    0
+END
+
+IDD_CITATION DLGINIT
+BEGIN
+    IDC_QUAY, 0x403, 11, 0
+0x6e75, 0x6572, 0x696c, 0x6261, 0x656c, "\000" 
+    IDC_QUAY, 0x403, 13, 0
+0x7571, 0x7365, 0x6974, 0x6e6f, 0x6261, 0x656c, "\000" 
+    IDC_QUAY, 0x403, 10, 0
+0x6573, 0x6f63, 0x646e, 0x7261, 0x0079, 
+    IDC_QUAY, 0x403, 7, 0
+0x6964, 0x6572, 0x7463, "\000" 
+    0
+END
+
+IDD_SOURCE DLGINIT
+BEGIN
+    IDC_IE, 0x376, 160, 0
+0x0000, 0x0000, 0x004c, 0x0000, 0x1339, 0x0000, 0x09b7, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x004c, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 
+0x0000, 0xd0e0, 0x0057, 0x3573, 0x11cf, 0x69ae, 0x0008, 0x2e2b, 0x6212, 
+0x0008, 0x0000, 0x0000, 0x0000, 0x004c, 0x0000, 0x1401, 0x0002, 0x0000, 
+0x0000, 0x00c0, 0x0000, 0x0000, 0x4600, 0x0080, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "Genealogy Research Organizer"
+    IDR_GEDTRETYPE          "\nGedcom\nGedcom\nGedcom Documents (*.ged)\n.ged\nGedcom\nGedcom Document"
+    IDR_GEDINTYPE           "\n"
+    IDR_GEDPDTYPE           "\n"
+    IDR_GEDILTYPE           "\n"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    ID_EDIT_ALIGNTOP        "Align selected individuals' tops"
+    ID_EDIT_CLEAN           "Arrange this individual's spouses and children"
+    ID_EDIT_SELECTANCESTORS "Select this individuals relatives"
+    ID_EDIT_DISCONNECT      "Disconnect an individual from all his/her relatives"
+    ID_EDIT_NEWINDIVIDUAL   "Add a new individual"
+    ID_EDIT_FINDNEXT        "Find next person by name"
+    ID_EDIT_RESIZEDOCUMENT  "Change the size of the drop-line chart"
+    ID_VIEW_ZOOMOUT         "Scale the view of this tree"
+    ID_VIEW_SCROLLTOSELECTION "Scrolls the view to a selected individual"
+    ID_VIEW_NOTES           "Edit notes about this Gedcom document"
+    ID_OPTIONS_FONT         "Select the font used to display the Gedcom document"
+    ID_EDIT_SELECTALL       "Select all individuals in this Gedcom document"
+    ID_VIEW_CENSUS          "View an individual's status in US Censuses"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    ID_FILE_INDEX           "Generate the index pages used by the web server."
+    ID_FILE_SERVE           "Starts GRO listening on a port to serve Gedcom data as HTML web pages."
+    ID_VIEW_ZOOMNORMAL      "100% scale"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Genealogy Research Organizer"
+    AFX_IDS_IDLEMESSAGE     "For Help, press F1"
+    AFX_IDS_HELPMODEMESSAGE "Select an object on which to get Help"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+    ID_HELP_INDEX           "Opens Help\nHelp Topics"
+    ID_HELP_FINDER          "List Help topics\nHelp Topics"
+    ID_HELP_USING           "Display instructions about how to use help\nHelp"
+    ID_CONTEXT_HELP         "Display help for clicked on buttons, menus and windows\nHelp"
+    ID_HELP                 "Display help for current task or command\nHelp"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find a person by name"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_OPTIONS_SUBMITTER    "Edit the Gedcom submitter's name and address"
+    ID_EDIT_CONNECT         "Connect two individuals"
+    ID_VIEW_SOURCES         "Open the list of sources in this Gedcom document\nSources"
+    ID_VIEW_REPOSITORIES    "Open the list of repositories in this Gedcom document\nRepositories"
+    ID_VIEW_INDI            "Open the selected individual's information page\nIndividual"
+    ID_VIEW_OPENPEDIGREE    "Open the selected individual's pedigree chart\nPedigree"
+    ID_VIEW_INDEXOFINDIVIDUALS 
+                            "Open the index of individuals in this Gedcom document\nIndex"
+    ID_OPTIONS_UNICODE      "Save Gedcom document as Unicode or ASCII"
+    ID_TOOLS_HOLIDAY        "Find the date of a holiday"
+    ID_VIEW_DROPLINECHART   "Open a new drop-line chart\nDrop-line"
+    ID_FILE_HTML            "Create Web page\nWeb page"
+    ID_BIRTH_CALC           "Calculate birthday based on age\nCalculate birthday"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\gedtree.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

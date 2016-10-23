@@ -1,0 +1,5 @@
+L("{\\fs24\n")
+L("{\\b %author%. {\\ul %title%}. (%publisher%).}\\par \\par\n")
+L("%text%\n")
+L("}\n")
+L("\\page\n")

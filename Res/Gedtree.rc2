@@ -1,0 +1,213 @@
+//
+// GEDTREE.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+	#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+#include "version.h"
+
+#define str(x) #x
+#define VBX(maj,min) str(maj) "." str(min)
+#define VB VBX(VERSION_MAJOR,VERSION_MINOR)
+
+#if defined(DEMO)
+#define VERSION_MESSAGE "DEMO"
+#elif defined(_DEBUG)
+#define VERSION_MESSAGE "DEBUG"
+#endif
+
+#if defined(VERSION_MESSAGE)
+#define VS VB " " VERSION_MESSAGE "\0"
+#else
+#define VS VB "\0"
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION VERSION_MAJOR,VERSION_MINOR,0,0
+ PRODUCTVERSION VERSION_MAJOR,VERSION_MINOR,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "This program reads and edits GEDCOM format files.\0"
+            VALUE "CompanyName", "Christopher Alan Mosher\0"
+            VALUE "FileDescription", "Genealogy Research Organizer\0"
+            VALUE "FileVersion", VS
+            VALUE "InternalName", "GRO\0"
+            VALUE "LegalCopyright", "© 1997-2003, Christopher Alan Mosher, Shelton, CT.\0"
+            VALUE "OriginalFilename", "GRO.EXE\0"
+            VALUE "ProductName", "Genealogy Research Organizer\0"
+            VALUE "ProductVersion", VS
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+#include "menudef.h"
+
+#define Sep MENUITEM SEPARATOR
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+	menuFile
+	END
+	menuEdit
+	END
+	menuView
+	END
+	menuWindow
+	END
+	menuTools
+	END
+	menuOptions
+	END
+	menuHelp
+	END
+END
+
+IDR_GEDTRETYPE MENU PRELOAD DISCARDABLE 
+BEGIN
+	menuFile
+	END
+	menuEdit
+//
+		Sep
+			MENUITEM "&Align Top",                  ID_EDIT_ALIGNTOP
+			MENUITEM "Cl&ean Entire Tree",          ID_EDIT_CLEAN
+//
+		Sep
+			MENUITEM "&Select Relatives",           ID_EDIT_SELECTANCESTORS
+			MENUITEM "Select A&ll",                 ID_EDIT_SELECTALL
+			MENUITEM "&Find...\tCtrl+F",            ID_EDIT_FIND
+			MENUITEM "Find Ne&xt\tF3",              ID_EDIT_FINDNEXT
+			MENUITEM "&Dim Unselected",	            ID_EDIT_HIDEUNSELECTED
+			MENUITEM "Sho&w All",	                ID_EDIT_SHOWALL
+			MENUITEM "Show as o&f...",              ID_EDIT_SHOWASOF
+//
+		Sep
+			MENUITEM "Resi&ze Document",            ID_EDIT_RESIZEDOCUMENT
+//
+		Sep
+			MENUITEM "&New Individual",             ID_EDIT_NEWINDIVIDUAL
+			MENUITEM "C&onnect...",                 ID_EDIT_CONNECT
+			MENUITEM "D&isconnect",                 ID_EDIT_DISCONNECT
+	END
+	menuView
+//
+		Sep
+			MENUITEM "S&cale",                      ID_VIEW_ZOOMOUT
+			MENUITEM "Nor&mal 1:1 Scale",           ID_VIEW_ZOOMNORMAL
+			MENUITEM "Scroll To Se&lection",        ID_VIEW_SCROLLTOSELECTION
+//
+		Sep
+			MENUITEM "Cens&us",                     ID_VIEW_CENSUS
+			MENUITEM "Place &Hierarchy",            ID_VIEW_PLACE
+			MENUITEM "&Anomalies",                  ID_VIEW_ANOMALIES
+	END
+	menuWindow
+	END
+	menuTools
+	END
+	menuOptions
+	END
+	menuHelp
+	END
+END
+
+IDR_GEDINTYPE MENU PRELOAD DISCARDABLE 
+BEGIN
+	menuFile
+	END
+	menuEdit
+	END
+	menuView
+	END
+	menuWindow
+	END
+	menuTools
+	END
+	menuOptions
+	END
+	menuHelp
+	END
+END
+
+IDR_GEDPDTYPE MENU PRELOAD DISCARDABLE 
+BEGIN
+	menuFile
+	END
+	menuEdit
+	END
+	menuView
+	END
+	menuWindow
+	END
+	menuTools
+	END
+	menuOptions
+	END
+	menuHelp
+	END
+END
+
+IDR_GEDILTYPE MENU PRELOAD DISCARDABLE 
+BEGIN
+	menuFile
+	END
+	menuEdit
+	END
+	menuView
+	END
+	menuWindow
+	END
+	menuTools
+	END
+	menuOptions
+	END
+	menuHelp
+	END
+END
+
+IDRC_GEDTRETYPE MENU PRELOAD DISCARDABLE 
+BEGIN
+	POPUP "IDRC_GEDTRETYPE"
+	BEGIN
+		MENUITEM "View &Individual",            ID_VIEW_INDI
+		MENUITEM "View &Pedigree",              ID_VIEW_OPENPEDIGREE
+		MENUITEM SEPARATOR
+		MENUITEM "&New Individual",             ID_EDIT_NEWINDIVIDUAL
+		MENUITEM "Connec&t...",                 ID_EDIT_CONNECT
+	END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
