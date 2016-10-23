@@ -143,7 +143,7 @@ void CPickSource::Reset()
 	}
 	m_listSource.SortItems(SortItems,(LPARAM)m_pDoc);
 
-	for (i = 0; i<m_pDoc->m_rSource.GetSize(); i++)
+	for (int i(0); i<m_pDoc->m_rSource.GetSize(); i++)
 	{
 		if ((int)m_listSource.GetItemData(i)==m_iSource)
 		{

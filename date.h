@@ -67,9 +67,9 @@ public:
 	{
 		return m_nYear||m_nMonth||m_nDay;
 	}
-	int GetSimpleYear() { return m_nYear; }
-	int GetSimpleYMD() { return m_nYear*10000+m_nMonth*100+m_nDay; }
-	int GetSimpleMonthCount() { return m_nYear*12+m_nMonth; }
+	int GetSimpleYear() const { return m_nYear; }
+	int GetSimpleYMD() const { return m_nYear*10000+m_nMonth*100+m_nDay; }
+	int GetSimpleMonthCount() const { return m_nYear*12+m_nMonth; }
 
 	//	Add or subtract a given number of days.
 	CDate& operator+=(int nDays);

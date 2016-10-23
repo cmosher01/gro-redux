@@ -1416,7 +1416,7 @@ void CGedtreeDoc::OnFileSave()
 	{
 		m_rIndividual[i].DebugRelations();
 	}
-	for (i = 0; i<m_rFamily.GetSize(); i++)
+	for (int i(0); i<m_rFamily.GetSize(); i++)
 	{
 		m_rFamily[i].DebugRelations();
 	}
@@ -1569,7 +1569,7 @@ CArray<int,int>* CGedtreeDoc::GetSortedIndis()
 		}
 
 		staticpDoc = this;
-		for (i = 0; i<n-1; ++i)
+		for (int i(0); i<n-1; ++i)
 		{
 			prg.Set(i+1);
 			for (int j(i+1); j<n; ++j)
@@ -1627,7 +1627,7 @@ void CGedtreeDoc::GetSortedSours(CArray<int,int>& rSour)
 	qsort(rLocalSour,n,sizeof(int), compareSour);
 
 	rSour.SetSize(n);
-	for (i = 0; i<n; i++)
+	for (int i(0); i<n; i++)
 		rSour[i] = rLocalSour[i];
 
 	delete [] rLocalSour;
@@ -1697,7 +1697,7 @@ void CGedtreeDoc::FixUpPastedIndi(int i)
 		evt.PutToTree();
 	}
 
-	for (j = 0; j<indi.m_rattr.GetSize(); ++j)
+	for (int j(0); j<indi.m_rattr.GetSize(); ++j)
 	{
 		CAttr& attr = indi.m_rattr[j];
 		HTREEITEM htiattr = InsertChild(_T("TITL"),indi.m_hTreeItem,1);
@@ -1734,7 +1734,7 @@ int CGedtreeDoc::PasteFami(CFamily& famiFrom)
 		ResetSubValue(fami.m_hTreeItem,"CHIL",indi.GetID(),TRUE);
 	}
 
-	for (j = 0; j<fami.m_revt.GetSize(); ++j)
+	for (int j(0); j<fami.m_revt.GetSize(); ++j)
 	{
 		CEvt& evt = fami.m_revt[j];
 		HTREEITEM htievt = InsertChild(_T("EVEN"),fami.m_hTreeItem,1);

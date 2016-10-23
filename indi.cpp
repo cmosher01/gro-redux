@@ -348,7 +348,7 @@ void CIndividual::Calc()
 		}
 	}
 
-	for (i = 0; i<m_rattr.GetSize(); i++)
+	for (int i(0); i<m_rattr.GetSize(); i++)
 	{
 		CAttr& attr = m_rattr[i];
 		attr.Calc();
@@ -653,7 +653,7 @@ void CIndividual::Clean(int nDepth)
 	pt = CPoint(
 		m_rectFrame.left+MARRIAGE_SPACING-((m_riChild.GetSize()-1)*CHILD_HSPACING)/2,
 		m_rectFrame.bottom+CHILD_VSPACING);
-	for (i = 0; i<m_riChild.GetSize(); i++)
+	for (int i(0); i<m_riChild.GetSize(); i++)
 	{
 		CIndividual* pChild = m_pDoc->Individual(m_riChild[i]);
 		if (!pChild->m_bMark)
@@ -980,7 +980,7 @@ void CIndividual::DebugRelations()
 		s.Format(_T("   s==%d\n"),m_riSpouse[i]);
 		OutputDebugString(s);
 	}
-	for (i = 0; i<m_riChild.GetSize(); i++)
+	for (int i(0); i<m_riChild.GetSize(); i++)
 	{
 		s.Format(_T("   c==%d\n"),m_riChild[i]);
 		OutputDebugString(s);
@@ -991,7 +991,7 @@ void CIndividual::DebugRelations()
 		s.Format(_T("   ct==%d\n"),m_iChildToFamily);
 		OutputDebugString(s);
 	}
-	for (i = 0; i<m_riSpouseToFamily.GetSize(); i++)
+	for (int i(0); i<m_riSpouseToFamily.GetSize(); i++)
 	{
 		s.Format(_T("   st==%d\n"),m_riSpouseToFamily[i]);
 		OutputDebugString(s);
@@ -1608,7 +1608,7 @@ void CIndividual::GetSortedEvents(CArray<CEvt,CEvt&>& revt)
 	for (int i(0); i<n; i++)
 		rx[i] = i;
 
-	for (i = 0; i<n-1; i++)
+	for (int i(0); i<n-1; i++)
 	{
 		for (int j(i+1); j<n; j++)
 		{
@@ -1635,7 +1635,7 @@ void CIndividual::GetSortedEvents(CArray<CEvt,CEvt&>& revt)
 	}
 
 	revt.SetSize(n);
-	for (i = 0; i<n; i++)
+	for (int i(0); i<n; i++)
 		revt[i] = m_revt[rx[i]];
 }
 
@@ -1647,7 +1647,7 @@ void CIndividual::GetSortedEvents(CFamily& fami, CArray<CEvt,CEvt&>& revt)
 	for (int i(0); i<n; i++)
 		rx[i] = i;
 
-	for (i = 0; i<n-1; i++)
+	for (int i(0); i<n-1; i++)
 		for (int j(i+1); j<n; j++)
 			if (fami.m_revt[rx[i]].m_dvDate.Sort()>fami.m_revt[rx[j]].m_dvDate.Sort())
 			{
@@ -1657,7 +1657,7 @@ void CIndividual::GetSortedEvents(CFamily& fami, CArray<CEvt,CEvt&>& revt)
 			}
 
 	revt.SetSize(n);
-	for (i = 0; i<n; i++)
+	for (int i(0); i<n; i++)
 		revt[i] = fami.m_revt[rx[i]];
 }
 
@@ -1669,7 +1669,7 @@ void CIndividual::GetSortedAttrs(CArray<CAttr,CAttr&>& rattr)
 	for (int i(0); i<n; i++)
 		rx[i] = i;
 
-	for (i = 0; i<n-1; i++)
+	for (int i(0); i<n-1; i++)
 		for (int j(i+1); j<n; j++)
 			if (m_rattr[rx[i]].m_evt.m_dvDate.Sort()>m_rattr[rx[j]].m_evt.m_dvDate.Sort())
 			{
@@ -1679,7 +1679,7 @@ void CIndividual::GetSortedAttrs(CArray<CAttr,CAttr&>& rattr)
 			}
 
 	rattr.SetSize(n);
-	for (i = 0; i<n; i++)
+	for (int i(0); i<n; i++)
 		rattr[i] = m_rattr[rx[i]];
 }
 
@@ -1708,7 +1708,7 @@ CString CIndividual::Census(const CArray<CDate,CDate>& rdateCensusDay)
 
 		for (int i(0); i<rdateCensusDay.GetSize(); i++)
 		{
-			int nCensusDay = rdateCensusDay[i].GetSimpleYMD();
+			int nCensusDay = (rdateCensusDay[i]).GetSimpleYMD();
 
 			int nLastEvent(0), iLastEvent(-1), iCensusEvent(-1);
 			for (int iEvt(0); iEvt<m_revt.GetSize(); iEvt++)
@@ -2550,7 +2550,7 @@ void CIndividual::GetSortedSpouseFamilies(CArray<int,int>& riSpouseToFamily)
 	{
 		riSpouseToFamily[i] = m_riSpouseToFamily[i];
 	}
-	for (i = 0; i<riSpouseToFamily.GetSize()-1; i++)
+	for (int i(0); i<riSpouseToFamily.GetSize()-1; i++)
 	{
 		for (int j(i+1); j<riSpouseToFamily.GetSize(); j++)
 		{
@@ -3334,7 +3334,7 @@ void CIndividual::WriteDescent(CStdioFile& f, int indiNum, list<CIndividual*>& t
 
 	// children
 
-	for (sp = 0; sp < riSpouseToFamily.GetSize(); ++sp)
+	for (int sp(0); sp < riSpouseToFamily.GetSize(); ++sp)
 	{
 		int iFami = riSpouseToFamily[sp];
 		CFamily& fami = m_pDoc->m_rFamily[iFami];

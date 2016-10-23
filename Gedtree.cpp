@@ -744,7 +744,7 @@ void CGedtreeApp::ResetAllDocuments(UINT flagsChanged)
 				pDoc->m_rIndividual[i].ResetWidth();
 				pDoc->m_rIndividual[i].Calc();
 			}
-			for (i = 0; i<pDoc->m_rFamily.GetSize(); i++)
+			for (int i(0); i<pDoc->m_rFamily.GetSize(); i++)
 			{
 				pDoc->m_rFamily[i].Calc();
 			}

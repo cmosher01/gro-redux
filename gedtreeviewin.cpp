@@ -456,7 +456,7 @@ void CGedtreeViewIN::FillEvents()
 		CheckColumnWidth(nColPlace,evt.m_strPlace);
 		CheckColumnWidth(nColSource,evt.m_cita.Display());
 	}
-	i = indi.m_revt.GetSize();
+	int i = indi.m_revt.GetSize();
 	lvi.iItem = i;
 	lvi.pszText = LPSTR_TEXTCALLBACK;
 	lvi.lParam = (LONG)new evtData(-1,"","");
@@ -692,7 +692,7 @@ void CGedtreeViewIN::FillAttributes()
 		CheckAColumnWidth(nColADate,attr.m_evt.m_dvDate.Sort());
 		CheckAColumnWidth(nColAPlace,attr.m_evt.m_strPlace);
 	}
-	i = indi.m_rattr.GetSize();
+	int i = indi.m_rattr.GetSize();
 	lvi.iItem = i;
 	lvi.pszText = LPSTR_TEXTCALLBACK;
 	lvi.lParam = (LONG)new attrData(-1,"");

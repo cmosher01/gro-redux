@@ -416,7 +416,7 @@ void CFamily::Disconnect(int iIndividual)
 		}
 		// remove from individual's spouses' list of spouses
 		CIndividual& indi = m_pDoc->m_rIndividual[iIndividual];
-		for (i = 0; i<indi.m_riSpouse.GetSize(); i++)
+		for (int i(0); i<indi.m_riSpouse.GetSize(); i++)
 		{
 			CIndividual& indiSpouse = m_pDoc->m_rIndividual[indi.m_riSpouse[i]];
 			int j = 0;
@@ -759,7 +759,7 @@ void CFamily::GetSortedChildren(CArray<int,int>& riChild)
 	{
 		riChild[i] = m_riChild[i];
 	}
-	for (i = 0; i<riChild.GetSize()-1; i++)
+	for (int i(0); i<riChild.GetSize()-1; i++)
 	{
 		for (int j(i+1); j<riChild.GetSize(); j++)
 		{

@@ -24,13 +24,13 @@ enum
 	nColBirth,
 	nColDeath
 };
-struct data
+struct indi_data
 {
 	int iIndi;
 	CDateValue dBirth, dDeath;
-	data(int i, CDateValue b, CDateValue d):
+	indi_data(int i, CDateValue b, CDateValue d):
 		iIndi(i), dBirth(b), dDeath(d) { }
-	virtual ~data() {}
+	virtual ~indi_data() {}
 };
 
 static CGedtreeDoc* pDoc;
@@ -278,7 +278,7 @@ void CGedtreeViewIL::Fill()
 				dDeath = evt.m_dvDate;
 		}
 
-		lvi.lParam = (LONG)new data(i,dBirth,dDeath);
+		lvi.lParam = (LONG)new indi_data(i,dBirth,dDeath);
 		m_list.InsertItem(&lvi);
 
 		CheckColumnWidth(nColSurname,indi.m_name.m_strSurname);
@@ -297,7 +297,7 @@ void CGedtreeViewIL::Fill()
 void CGedtreeViewIL::OnGetdispinfoList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	LV_DISPINFO* pDispInfo = (LV_DISPINFO*)pNMHDR;
-	data* pp = (data*)pDispInfo->item.lParam;
+	indi_data* pp = (indi_data*)pDispInfo->item.lParam;
 	CIndividual& indi = GetDocument()->m_rIndividual[pp->iIndi];
 	if (pDispInfo->item.mask&LVIF_TEXT)
 	{
@@ -323,13 +323,13 @@ void CGedtreeViewIL::OnGetdispinfoList(NMHDR* pNMHDR, LRESULT* pResult)
 void CGedtreeViewIL::DeleteData()
 {
 	for (int i(0); i<m_list.GetItemCount(); i++)
-		delete (data*)m_list.GetItemData(i);
+		delete (indi_data*)m_list.GetItemData(i);
 }
 
 static int CALLBACK SortItems(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort)
 {
-	data* pp1 = (data*)lParam1;
-	data* pp2 = (data*)lParam2;
+	indi_data* pp1 = (indi_data*)lParam1;
+	indi_data* pp2 = (indi_data*)lParam2;
 	CIndividual& indi1 = pDoc->m_rIndividual[pp1->iIndi];
 	CIndividual& indi2 = pDoc->m_rIndividual[pp2->iIndi];
 
@@ -399,7 +399,7 @@ void CGedtreeViewIL::OnViewIndi()
 	i = m_list.GetNextItem(i,LVNI_SELECTED);
 	if (i>=0)
 	{
-		data* pp = (data*)m_list.GetItemData(i);
+		indi_data* pp = (indi_data*)m_list.GetItemData(i);
 		CIndividual& indi = GetDocument()->m_rIndividual[pp->iIndi];
 		indi.OpenView();
 	}
@@ -418,7 +418,7 @@ void CGedtreeViewIL::OnViewOpenpedigree()
 	i = m_list.GetNextItem(i,LVNI_SELECTED);
 	if (i>=0)
 	{
-		data* pp = (data*)m_list.GetItemData(i);
+		indi_data* pp = (indi_data*)m_list.GetItemData(i);
 		CIndividual& indi = GetDocument()->m_rIndividual[pp->iIndi];
 		indi.OpenPedigree();
 	}

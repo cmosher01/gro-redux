@@ -34,16 +34,18 @@ struct evtattr
 
 typedef CArray<evtattr,evtattr&> place_set;
 
-struct data
+struct place_data
 {
 	int iIndi;
 	CDateValue dDate;
 	CString strEvt;
 	CString strPlace;
-	data() {}
-	data(int i, CDateValue d, const CString& s, const CString& sp):
+	place_data() {}
+	place_data(int i, CDateValue d, const CString& s, const CString& sp):
 		iIndi(i), dDate(d), strEvt(s), strPlace(sp) { }
 };
+
+//typedef struct place_data place_data;
 
 class Places : public CDialog
 {
@@ -79,7 +81,7 @@ protected:
 	void DeleteData();
 
 	CArray<place_set*,place_set*> m_rEvtattr;
-	CArray<data,const data&> m_rpData;
+	CArray<place_data,const place_data&> m_rpData;
 	bool m_bFirst;
 
 	// Generated message map functions

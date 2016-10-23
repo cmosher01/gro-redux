@@ -30,7 +30,7 @@ static int CALLBACK SortItems(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort)
 // Places dialog
 
 
-static CArray<data,const data&>* rpData;
+static CArray<place_data,const place_data&>* rpData;
 
 Places::Places(CGedtreeDoc* pDoc, CWnd* pParent /*=NULL*/)
 	: CDialog(Places::IDD, pParent),
@@ -82,12 +82,12 @@ void Places::AddPlaces()
 				CEvt& evt = indi.m_revt[i];
 				AddPlace(evt.m_strPlace,iIndi,i,-1);
 			}
-			for (i = 0; i<indi.m_rattr.GetSize(); i++)
+			for (int i(0); i<indi.m_rattr.GetSize(); i++)
 			{
 				CAttr& attr = indi.m_rattr[i];
 				AddPlace(attr.m_evt.m_strPlace,iIndi,-1,i);
 			}
-			for (i = 0; i<indi.m_riSpouseToFamily.GetSize(); ++i)
+			for (int i(0); i<indi.m_riSpouseToFamily.GetSize(); ++i)
 			{
 				int iFami(indi.m_riSpouseToFamily[i]);
 				for (int j(0); j<m_pDoc->m_rFamily[iFami].m_revt.GetSize(); ++j)
@@ -308,7 +308,7 @@ void Places::FillEventList()
 			strPlace = evt.m_strPlace;
 		}
 
-		data d(ea.iIndi,dv,strEvt,strPlace);
+		place_data d(ea.iIndi,dv,strEvt,strPlace);
 		int id = m_rpData.Add(d);
 		lvi.lParam = id;
 		lvi.iItem = i;
@@ -330,8 +330,8 @@ void Places::OnGetdispinfoEvent(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	LV_DISPINFO* pDispInfo = (LV_DISPINFO*)pNMHDR;
 	*pResult = 0;
-	const data& pd = rpData->GetAt(pDispInfo->item.lParam);
-	data* pp = (data*)&pd;
+	const place_data& pd = rpData->GetAt(pDispInfo->item.lParam);
+	place_data* pp = (place_data*)&pd;
 	CIndividual& indi = m_pDoc->m_rIndividual[pp->iIndi];
 	if (pDispInfo->item.mask&LVIF_TEXT)
 	{
@@ -358,10 +358,10 @@ void Places::OnGetdispinfoEvent(NMHDR* pNMHDR, LRESULT* pResult)
 
 static int CALLBACK SortItems(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort)
 {
-	const data& pd1 = rpData->GetAt(lParam1);
-	const data& pd2 = rpData->GetAt(lParam2);
-	data* pp1 = (data*)&pd1;
-	data* pp2 = (data*)&pd2;
+	const place_data& pd1 = rpData->GetAt(lParam1);
+	const place_data& pd2 = rpData->GetAt(lParam2);
+	place_data* pp1 = (place_data*)&pd1;
+	place_data* pp2 = (place_data*)&pd2;
 	CIndividual& indi1 = pDoc->m_rIndividual[pp1->iIndi];
 	CIndividual& indi2 = pDoc->m_rIndividual[pp2->iIndi];
 

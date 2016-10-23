@@ -527,7 +527,7 @@ void CGedtreeViewDL::MyPrint(CMyDC& dc)
 	fontUse.CreateFontIndirect(&lf);
 	pDCUse->SelectObject(&fontUse);
 
-	for (i = 0; i<pDoc->m_rIndividual.GetSize(); i++)
+	for (int i(0); i<pDoc->m_rIndividual.GetSize(); i++)
 		pDoc->m_rIndividual[i].OnDraw(dc);
 }
 
@@ -794,7 +794,7 @@ void CGedtreeViewDL::OnEditAlignTop()
 	MyRect rectBounds; // bounds of new pos of indis
 	rectBounds.SetRectEmpty();
 
-	for (i = 0; i<pDoc->m_rIndividual.GetSize(); i++)
+	for (int i(0); i<pDoc->m_rIndividual.GetSize(); i++)
 	{
 		CIndividual& indi = pDoc->m_rIndividual[i];
 		if (indi.m_bSelected)
@@ -1124,7 +1124,7 @@ void CGedtreeViewDL::CleanAll()
 					CArray<int,int> riChild2;
 					if (sp1 >= 0)
 						riChild2.Add(riChild[sp1]);
-					for (ch = 0; ch < nch; ++ch)
+					for (int ch(0); ch < nch; ++ch)
 					{
 						if (ch != sp1 && ch != sp2)
 							riChild2.Add(riChild[ch]);
@@ -1478,7 +1478,7 @@ void CGedtreeViewDL::SetScale(int nScale)
 		indi.SetScale(m_nScale);
 	}
 
-	for (i = 0; i<pDoc->m_rFamily.GetSize(); i++)
+	for (int i(0); i<pDoc->m_rFamily.GetSize(); i++)
 	{
 		CFamily& family = pDoc->m_rFamily[i];
 		family.SetScale(m_nScale);
@@ -1512,15 +1512,17 @@ void CGedtreeViewDL::OnViewScrolltoselection()
 
 	CIndividual* pIndi = NULL;
 
+	int last_i(0);
 	for (int i(0); i<pDoc->m_rIndividual.GetSize(); i++)
 	{
+		last_i = i;
 		pIndi = &pDoc->m_rIndividual[i];
 		if (pIndi->m_bSelected)
 		{
 			break;
 		}
 	}
-	if (i<pDoc->m_rIndividual.GetSize() && pIndi)
+	if (last_i<pDoc->m_rIndividual.GetSize() && pIndi)
 		ScrollToIndi(pIndi);
 }
 
@@ -1597,7 +1599,7 @@ void CGedtreeViewDL::OnEditHideunselected()
 			m_bSomeHidden = true;
 		}
 	}
-	for (i = 0; i<pDoc->m_rFamily.GetSize(); i++)
+	for (int i(0); i<pDoc->m_rFamily.GetSize(); i++)
 	{
 		CFamily& fami = pDoc->m_rFamily[i];
 		fami.Calc();
@@ -1618,7 +1620,7 @@ void CGedtreeViewDL::OnEditShowall()
 		CIndividual& indi = pDoc->m_rIndividual[i];
 		indi.m_bHidden = FALSE;
 	}
-	for (i = 0; i<pDoc->m_rFamily.GetSize(); i++)
+	for (int i(0); i<pDoc->m_rFamily.GetSize(); i++)
 	{
 		CFamily& fami = pDoc->m_rFamily[i];
 		fami.Calc();
@@ -1656,7 +1658,7 @@ void CGedtreeViewDL::OnEditShowAsOf()
 		CIndividual& indi = pDoc->m_rIndividual[i];
 		indi.showAsOf(m_pAsOfDate);
 	}
-	for (i = 0; i<pDoc->m_rFamily.GetSize(); i++)
+	for (int i(0); i<pDoc->m_rFamily.GetSize(); i++)
 	{
 		CFamily& fami = pDoc->m_rFamily[i];
 		fami.showAsOf(m_pAsOfDate);
@@ -2009,9 +2011,9 @@ void CGedtreeViewDL::OnFileHTML()
 		}
 
 		prg.Reset("Exporting sources.",pDoc->m_rSource.GetSize());
-		for (i = 0; i<pDoc->m_rSource.GetSize(); i++)
+		for (int i(0); i<pDoc->m_rSource.GetSize(); i++)
 		{
-			CSource& sour = pDoc->m_rSource[i];
+			CSource& sour(pDoc->m_rSource[i]);
 			prg.Set(i+1,sour.m_strTitle);
 			CStdioFile f(sPath+sour.GetWebFilePath(),CFile::modeCreate|CFile::modeWrite);
 			f.WriteString(sour.GetWebPage(tplSour));
