@@ -65,15 +65,11 @@ void WebServer::run()
 
 void WebServer::SetUpListener()
 {
-	u_long nInterfaceAddr = ::inet_addr("0.0.0.0");
-	if (nInterfaceAddr == INADDR_NONE)
-		throw ::WSAGetLastError();
-
 	mSocket.create(AF_INET,SOCK_STREAM,0);
 
 	sockaddr_in sin;
 	sin.sin_family = AF_INET;
-	sin.sin_addr.s_addr = nInterfaceAddr;
+	sin.sin_addr.s_addr = INADDR_ANY;
 	sin.sin_port = mPort;
 
 	mSocket.bind(&sin,sizeof(sockaddr_in));

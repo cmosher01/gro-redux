@@ -23,7 +23,7 @@ void CAppInfo::Read()
 	TCHAR dir[_MAX_DIR];
 	TCHAR fname[_MAX_FNAME];
 	TCHAR ext[_MAX_EXT];
-	_tsplitpath(m_strAppPath,drive,dir,fname,ext);
+	_tsplitpath_s(m_strAppPath, drive, _MAX_DRIVE, dir, _MAX_DIR, fname, _MAX_FNAME, ext, _MAX_EXT);
 	m_strAppDrive = drive;
 	m_strAppDir = dir;
 	m_strAppFName = fname;

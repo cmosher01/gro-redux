@@ -24,21 +24,21 @@ const CSize MARGIN(10,10);
 const CRect TAB_MARGIN(1,22,2,2);
 
 static const int nColExtraWidth(15);
-static enum
+enum
 {
 	nColEvent,
 	nColDate,
 	nColPlace,
 	nColSource
 };
-static enum
+enum
 {
 	nColPName,
 	nColPEvent,
 	nColPDate,
 	nColPPlace
 };
-static enum
+enum
 {
 	nColAAttr,
 	nColAVal,
@@ -68,7 +68,7 @@ struct attrData
 		iAttr(i), strSort(sSort) { }
 };
 
-static enum
+enum
 {
 	nTabEvent,
 	nTabAttr,

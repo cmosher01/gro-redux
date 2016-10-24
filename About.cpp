@@ -54,7 +54,7 @@ void CAbout::DoDataExchange(CDataExchange* pDX)
 		lf.lfClipPrecision = CLIP_DEFAULT_PRECIS;
 		lf.lfQuality = PROOF_QUALITY;
 		lf.lfPitchAndFamily = DEFAULT_PITCH;
-		_tcscpy(lf.lfFaceName,_T("Arial"));
+		_tcscpy_s(lf.lfFaceName, LF_FACESIZE, _T("Arial"));
 		m_font.CreateFontIndirect(&lf);
 		m_staticAbout.SetFont(&m_font);
 	}

@@ -1054,7 +1054,7 @@ CString CIndividual::GetWebPage(CMemFile& fTmpl, const CString& sDocID)
 								bEnd = TRUE;
 							else if (!sTok.CompareNoCase(_T("event")))
 							{
-								DWORD start = fTmpl.GetPosition();
+								ULONGLONG start = fTmpl.GetPosition();
 								for (int i(0); i<revt.GetSize()&&!Private(); i++)
 								{
 									fTmpl.Seek(start,CFile::begin);
@@ -1139,7 +1139,7 @@ CString CIndividual::GetWebPage(CMemFile& fTmpl, const CString& sDocID)
 								bEnd = TRUE;
 							else if (!sTok.CompareNoCase(_T("attribute")))
 							{
-								DWORD start = fTmpl.GetPosition();
+								ULONGLONG start = fTmpl.GetPosition();
 								for (int i(0); i<rattr.GetSize()&&!Private(); i++)
 								{
 									fTmpl.Seek(start,CFile::begin);
@@ -1234,7 +1234,7 @@ CString CIndividual::GetWebPage(CMemFile& fTmpl, const CString& sDocID)
 								bEnd = TRUE;
 							else if (!sTok.CompareNoCase(_T("partnership")))
 							{
-								DWORD start = fTmpl.GetPosition();
+								ULONGLONG start = fTmpl.GetPosition();
 								for (int i(0); i<m_riSpouseToFamily.GetSize(); i++)
 								{
 									fTmpl.Seek(start,CFile::begin);
@@ -1295,7 +1295,7 @@ CString CIndividual::GetWebPage(CMemFile& fTmpl, const CString& sDocID)
 															bEnd = TRUE;
 														else if (!sTok.CompareNoCase(_T("event")))
 														{
-															DWORD start = fTmpl.GetPosition();
+															ULONGLONG start = fTmpl.GetPosition();
 															for (int i(0); i<revt.GetSize()&&!Private(); i++)
 															{
 																fTmpl.Seek(start,CFile::begin);
@@ -1380,7 +1380,7 @@ CString CIndividual::GetWebPage(CMemFile& fTmpl, const CString& sDocID)
 															bEnd = TRUE;
 														else if (!sTok.CompareNoCase(_T("child")))
 														{
-															DWORD start = fTmpl.GetPosition();
+															ULONGLONG start = fTmpl.GetPosition();
 															CArray<int,int> riChild;
 															fami.GetSortedChildren(riChild);
 															for (int j(0); j<riChild.GetSize(); j++)
@@ -1932,7 +1932,7 @@ CString CIndividual::GetRTFPage(CMemFile& fTmpl)
 								bEnd = TRUE;
 							else if (!sTok.CompareNoCase(_T("event")))
 							{
-								DWORD start = fTmpl.GetPosition();
+								ULONGLONG start = fTmpl.GetPosition();
 								for (int i(0); i<revt.GetSize(); i++)
 								{
 									fTmpl.Seek(start,CFile::begin);
@@ -2012,7 +2012,7 @@ CString CIndividual::GetRTFPage(CMemFile& fTmpl)
 								bEnd = TRUE;
 							else if (!sTok.CompareNoCase(_T("attribute")))
 							{
-								DWORD start = fTmpl.GetPosition();
+								ULONGLONG start = fTmpl.GetPosition();
 								for (int i(0); i<rattr.GetSize(); i++)
 								{
 									fTmpl.Seek(start,CFile::begin);
@@ -2114,7 +2114,7 @@ CString CIndividual::GetRTFPage(CMemFile& fTmpl)
 								bEnd = TRUE;
 							else if (!sTok.CompareNoCase(_T("partnership")))
 							{
-								DWORD start = fTmpl.GetPosition();
+								ULONGLONG start = fTmpl.GetPosition();
 								for (int i(0); i<m_riSpouseToFamily.GetSize(); i++)
 								{
 									fTmpl.Seek(start,CFile::begin);
@@ -2177,7 +2177,7 @@ CString CIndividual::GetRTFPage(CMemFile& fTmpl)
 															bEnd = TRUE;
 														else if (!sTok.CompareNoCase(_T("event")))
 														{
-															DWORD start = fTmpl.GetPosition();
+															ULONGLONG start = fTmpl.GetPosition();
 															for (int i(0); i<revt.GetSize(); i++)
 															{
 																fTmpl.Seek(start,CFile::begin);
@@ -2257,7 +2257,7 @@ CString CIndividual::GetRTFPage(CMemFile& fTmpl)
 															bEnd = TRUE;
 														else if (!sTok.CompareNoCase(_T("child")))
 														{
-															DWORD start = fTmpl.GetPosition();
+															ULONGLONG start = fTmpl.GetPosition();
 															for (int j(0); j<fami.m_riChild.GetSize(); j++)
 															{
 																fTmpl.Seek(start,CFile::begin);
@@ -3116,10 +3116,10 @@ void CIndividual::WriteDescent(CStdioFile& f, int indiNum, list<CIndividual*>& t
 
 	set<int> riSrc;
 
-	_itoa(indiNum,rc,10);
+	_itoa_s(indiNum,rc,17,10);
 	CString sInd(rc);
 
-	_itoa(m_nLevel,rc,10);
+	_itoa_s(m_nLevel,rc,17,10);
 	CString sGen(rc);
 
 	f.WriteString(L"<!-- ********************************* generation ");
@@ -3158,7 +3158,7 @@ void CIndividual::WriteDescent(CStdioFile& f, int indiNum, list<CIndividual*>& t
 		{
 			panc = &m_pDoc->m_rIndividual[panc->m_iFather];
 			f.WriteString(filterUnknown(panc->m_name.m_strGiven));
-			_itoa(deslev,rc,10);
+			_itoa_s(deslev,rc,17,10);
 			CString sLev(rc);
 			f.WriteString(L"<span class=\"gen\">");
 				f.WriteString(sLev);
@@ -3220,7 +3220,7 @@ void CIndividual::WriteDescent(CStdioFile& f, int indiNum, list<CIndividual*>& t
 				f.WriteString(L",\n");
 			}
 			first = false;
-			_itoa(evt.m_dvDate.GetSimpleYear(),rc,10);
+			_itoa_s(evt.m_dvDate.GetSimpleYear(),rc,17,10);
 			CString sYear(rc);
 			f.WriteString(sYear);
 			f.WriteString(L" Census ");
@@ -3379,7 +3379,7 @@ void CIndividual::WriteDescent(CStdioFile& f, int indiNum, list<CIndividual*>& t
 					pchild->m_nLevel = m_nLevel+1;
 					todo.push_back(pchild);
 					int cNum = indiNum+todo.size();
-					_itoa(cNum,rc,10);
+					_itoa_s(cNum,rc,17,10);
 					CString sChildNum(rc);
 					f.WriteString(L"<span class=\"nextIndiNumber\">");
 					f.WriteString(sChildNum);
@@ -3388,7 +3388,7 @@ void CIndividual::WriteDescent(CStdioFile& f, int indiNum, list<CIndividual*>& t
 				f.WriteString(L"<span class=\"indiName\">");
 					f.WriteString(filterUnknown(pchild->m_name.m_strGiven));
 					f.WriteString(L"<span class=\"gen\">");
-						_itoa(m_nLevel+1,rc,10);
+						_itoa_s(m_nLevel+1,rc,17,10);
 						CString sChildGen(rc);
 						f.WriteString(sChildGen);
 					f.WriteString(L"</span>");

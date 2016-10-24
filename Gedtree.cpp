@@ -145,7 +145,7 @@ wstring toHTTPTime(SYSTEMTIME* st)
 
 	//Thu, 13 Mar 2003 04:35:00 GMT
 	TCHAR ssdt[30];
-	::swprintf(ssdt,L"%s, %02d %s %04d %02d:%02d:%02d GMT",
+	::swprintf(ssdt, 30, L"%s, %02d %s %04d %02d:%02d:%02d GMT",
 		sdtWk.c_str(),
 		st->wDay,
 		sdtMo.c_str(),
@@ -381,7 +381,7 @@ BOOL CGedtreeApp::FirstInstance()
 	try
 	{
 		TCHAR szCommandString[1024];
-		_tcscpy(szCommandString,::GetCommandLine());
+		_tcscpy_s(szCommandString, 1024, ::GetCommandLine());
 
 		hCommand = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE,sizeof(szCommandString)+1);
 		if (!hCommand) throw FALSE;
@@ -389,7 +389,7 @@ BOOL CGedtreeApp::FirstInstance()
 		lpCommand = (LPTSTR)::GlobalLock(hCommand);
 		if (!lpCommand) throw FALSE;
 
-		_tcscpy(lpCommand,szCommandString);
+		_tcscpy_s(lpCommand, 1024, szCommandString);
 
 		::GlobalUnlock(hCommand);
 
@@ -511,7 +511,7 @@ void CGedtreeApp::GetReg(
 {
 	CString strVal;
 	char sDefault[17];
-	_itoa(nDefault,sDefault,10);
+	_itoa_s(nDefault, sDefault, 17, 10);
 	GetReg(strKey,strSub,strVal,sDefault);
 	nVal = _ttoi(strVal);
 }
@@ -542,7 +542,7 @@ void CGedtreeApp::PutReg(
 	const int& nVal)
 {
 	char sVal[17];
-	_itoa(nVal,sVal,10);
+	_itoa_s(nVal, sVal, 17, 10);
 	PutReg(strKey,strSub,sVal);
 }
 
@@ -933,7 +933,7 @@ void CGedtreeApp::ReadFontFromRegistry()
 
 	CString strFaceName;
 	GetReg("Font","lfFaceName",strFaceName,lfDef.lfFaceName);
-	_tcsncpy(lf.lfFaceName,strFaceName,LF_FACESIZE);
+	_tcsncpy_s(lf.lfFaceName, LF_FACESIZE, strFaceName, LF_FACESIZE);
 
 	InitFonts(&lf);
 }
@@ -1459,76 +1459,12 @@ void CGedtreeApp::OnFileSetup()
 
 void CGedtreeApp::CreateStartMenuShortcut(BOOL bShowMessage) 
 {
-	CString strMsg;
-
-	try
-	{
-		// get the shortcut file's name
-		CString strShortcut = GetStartMenuShortcutFileName();
-
-		FILE* lnkfile = _wfopen(strShortcut,L"r");
-		if (lnkfile)
-		{
-			// shortcut already exists, do nothing
-			fclose(lnkfile);
-			strMsg = theApp.m_pszAppName;
-			strMsg = " is already in the Start menu.";
-		}
-		else
-		{
-			// create the shortcut file
-			IShellLinkWPtr sh(CLSID_ShellLink);
- 			sh->SetPath(m_info.m_strAppPath);
-			sh->SetDescription(m_info.m_strComments);
-			IPersistFilePtr pf = sh;
-			pf->Save(strShortcut,TRUE);
-
-			strMsg = theApp.m_pszAppName;
-			strMsg += " has been added to the Start menu.";
-		}
-	}
-	catch (...)
-	{
-		strMsg = "ERROR: Could not add item to the Start menu.";
-	}
-
-	if (bShowMessage)
-		::AfxMessageBox(strMsg);
+	// TODO: proper install
 }
 
 void CGedtreeApp::DeleteStartMenuShortcut(BOOL bShowMessage) 
 {
-	BOOL bOK = ::DeleteFile(GetStartMenuShortcutFileName());
-
-	CString strMsg;
-	if (bOK)
-	{
-		strMsg = theApp.m_pszAppName;
-		strMsg += " has been removed from the Start menu.";
-	}
-	else
-	{
-		strMsg = "ERROR: Could not remove ";
-		strMsg += theApp.m_pszAppName;
-		strMsg += " from the Start menu.";
-	}
-
-	if (bShowMessage)
-		::AfxMessageBox(strMsg);
-}
-
-CString CGedtreeApp::GetStartMenuShortcutFileName()
-{
-	LPITEMIDLIST pidl;
-	::SHGetSpecialFolderLocation(m_pMainWnd->GetSafeHwnd(),CSIDL_PROGRAMS,&pidl);
-	TCHAR sPath[MAX_PATH+1];
-	::SHGetPathFromIDList(pidl,sPath);
-	wstring wsPath = sPath;
-	wsPath += L"\\";
-	wsPath += m_info.m_strName;
-	wsPath += L".lnk";
-
-	return CString(wsPath.c_str());
+	// TODO: proper uninstall
 }
 
 void CGedtreeApp::Uninstall() 
@@ -1554,41 +1490,6 @@ void CGedtreeApp::BuildAppPaths()
 
 void CGedtreeApp::RemoveApp() 
 {
-	CString strApp = theApp.m_info.m_strAppPath;
-
-	TCHAR drive[_MAX_DRIVE];
-	TCHAR dir[_MAX_DIR];
-	TCHAR fname[_MAX_FNAME];
-	TCHAR ext[_MAX_EXT];
-	_tsplitpath(strApp,drive,dir,fname,ext);
-
-	TCHAR path_buffer[_MAX_PATH];
-
-	_tmakepath(path_buffer,drive,dir,L"",L"");
-	CString strDir = path_buffer;
-	ReplaceFileOnReboot(strDir,0);
-
-	ReplaceFileOnReboot(strApp,0);
-
-	_tmakepath(path_buffer,drive,dir,L"groaplt",L".jar");
-	ReplaceFileOnReboot(CString(path_buffer),0);
-
-	_tmakepath(path_buffer,drive,dir,L"unicows",L".dll");
-	ReplaceFileOnReboot(CString(path_buffer),0);
-
-	_tmakepath(path_buffer,drive,dir,L"mfc42lu",L".dll");
-	ReplaceFileOnReboot(CString(path_buffer),0);
-
-	_tmakepath(path_buffer,drive,dir,L"msluirt",L".dll");
-	ReplaceFileOnReboot(CString(path_buffer),0);
-
-	_tmakepath(path_buffer,drive,dir,L"mslup60",L".dll");
-	ReplaceFileOnReboot(CString(path_buffer),0);
-
-	_tmakepath(path_buffer,drive,dir,L"mslurt",L".dll");
-	ReplaceFileOnReboot(CString(path_buffer),0);
-
-	AfxMessageBox(_T("The next time you reboot your system, the uninstallation will finish. Visit http://go.to/gro to re-download GRO if you want to re-install."));
 }
 
 void CGedtreeApp::UninstallRegistry() 

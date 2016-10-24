@@ -1960,7 +1960,7 @@ void CGedtreeViewDL::OnFileHTML()
 	TCHAR dir[_MAX_DIR];
 	TCHAR fname[_MAX_FNAME];
 	TCHAR ext[_MAX_EXT];
-	_tsplitpath(sPath,drive,dir,fname,ext);
+	_tsplitpath_s(sPath,drive,_MAX_DRIVE,dir,_MAX_DIR,fname,_MAX_FNAME,ext,_MAX_EXT);
 	sPath = CString(drive)+CString(dir)+CString(fname)+"\\";
 
 	CString sPathIndi = CString(drive)+CString(dir)+"indi.tpl";
@@ -2222,8 +2222,8 @@ void CGedtreeViewDL::OnFileRTF()
 	TCHAR dir[_MAX_DIR];
 	TCHAR fname[_MAX_FNAME];
 	TCHAR ext[_MAX_EXT];
-	_tsplitpath(sPath,drive,dir,fname,ext);
-/*
+	_tsplitpath_s(sPath, drive, _MAX_DRIVE, dir, _MAX_DIR, fname, _MAX_FNAME, ext, _MAX_EXT);
+	/*
 taking out rtf code just to test the "text descent book" code
 	sPath = CString(drive)+CString(dir)+CString(fname)+".rtf";
 
@@ -2365,7 +2365,7 @@ void CGedtreeViewDL::OnViewCensus()
 	TCHAR dir[_MAX_DIR];
 	TCHAR fname[_MAX_FNAME];
 	TCHAR ext[_MAX_EXT];
-	_tsplitpath(sPath,drive,dir,fname,ext);
+	_tsplitpath_s(sPath, drive, _MAX_DRIVE, dir, _MAX_DIR, fname, _MAX_FNAME, ext, _MAX_EXT);
 	sPath = CString(drive)+CString(dir);
 	CString sFilePath = sPath + CString(fname) + "census.html";
 
@@ -2643,7 +2643,7 @@ void CGedtreeViewDL::OnViewAnomalies()
 	TCHAR dir[_MAX_DIR];
 	TCHAR fname[_MAX_FNAME];
 	TCHAR ext[_MAX_EXT];
-	_tsplitpath(sPath,drive,dir,fname,ext);
+	_tsplitpath_s(sPath, drive, _MAX_DRIVE, dir, _MAX_DIR, fname, _MAX_FNAME, ext, _MAX_EXT);
 	sPath = CString(drive)+CString(dir);
 	CString sFilePath = sPath + CString(fname) + "anomaly.html";
 

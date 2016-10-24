@@ -4,7 +4,7 @@
 CString CUtil::str(const int n)
 {
 	char s[17];
-	_itoa(n,s,10);
+	_itoa_s(n,s,17,10);
 	return CString(s);
 }
 

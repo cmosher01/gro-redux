@@ -156,10 +156,10 @@ void CGedtreeDoc::DisconnectFile()
 	TCHAR dir[_MAX_DIR];
 	TCHAR fname[_MAX_FNAME];
 	TCHAR ext[_MAX_EXT];
-	_tsplitpath(strName,drive,dir,fname,ext);
+	_tsplitpath_s(strName, drive, _MAX_DRIVE, dir, _MAX_DIR, fname, _MAX_FNAME, ext, _MAX_EXT);
 
 	TCHAR path_buffer[_MAX_PATH];
-	_tmakepath(path_buffer,drive,dir,"Old"+CString(fname),ext);
+	_tmakepath_s(path_buffer, _MAX_PATH, drive, dir, "Old"+CString(fname), ext);
 
 	SetPathName(path_buffer);
 
@@ -399,7 +399,7 @@ void CGedtreeDoc::ReadFromArchive(CArchive& ar)
 //	CMapStringToString& pm = App()->m_mapTagMeaning;
 	int levPrev = -1;
 
-	DWORD filesize(ar.GetFile()->GetLength());
+	ULONGLONG filesize(ar.GetFile()->GetLength());
 	m_pPrg->Reset("Reading records from file.",filesize);
 	DWORD filepos(0);
 
@@ -2205,7 +2205,7 @@ static void SetDir(const CString& s)
 	TCHAR dir[_MAX_DIR];
 	TCHAR fname[_MAX_FNAME];
 	TCHAR ext[_MAX_EXT];
-	_tsplitpath(s,drive,dir,fname,ext);
+	_tsplitpath_s(s, drive, _MAX_DRIVE, dir, _MAX_DIR, fname, _MAX_FNAME, ext, _MAX_EXT);
 
 	CString sPath = CString(drive)+CString(dir);
 

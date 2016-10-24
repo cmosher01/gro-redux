@@ -22,7 +22,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 const CRect TAB_MARGIN(1,22,2,2);
-static enum
+enum
 {
 	nTabPreview,
 	nTabEdit
@@ -385,7 +385,7 @@ void CEditSource::SetDir(const CString& s)
 	TCHAR dir[_MAX_DIR];
 	TCHAR fname[_MAX_FNAME];
 	TCHAR ext[_MAX_EXT];
-	_tsplitpath(s,drive,dir,fname,ext);
+	_tsplitpath_s(s, drive, _MAX_DRIVE, dir, _MAX_DIR, fname, _MAX_FNAME, ext, _MAX_EXT);
 
 	CString sPath = CString(drive)+CString(dir);
 

@@ -15,7 +15,7 @@ static char THIS_FILE[] = __FILE__;
 
 static const int nColExtraWidth(15);
 static const int nColMaxWidth(250);
-static enum
+enum
 {
 	nColTitle,
 	nColAuthor,
