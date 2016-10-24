@@ -95,7 +95,7 @@ static void getBuildTime(SYSTEMTIME* st)
 	wstring stim(_T(__TIME__));
 
 	st->wYear = ::_wtoi(sdat.substr(7,4).c_str());
-	st->wMonth = mos.find(sdat.substr(0,3))/3+1;
+	st->wMonth = (WORD)mos.find(sdat.substr(0,3))/3+1;
 	st->wDay = ::_wtoi(sdat.substr(4,2).c_str());
 	st->wDayOfWeek = 0; // not set
 	st->wHour = ::_wtoi(stim.substr(0,2).c_str());
@@ -189,7 +189,7 @@ void fromHTTPTime(const wstring& s, SYSTEMTIME* st)
 	// month
 	wstring mos(L"JanFebMarAprMayJunJulAugSepOctNovDec");
 	i = s.find_first_of(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ",i);
-	st->wMonth = mos.find(s.substr(i,3))/3+1;
+	st->wMonth = (WORD)mos.find(s.substr(i,3))/3+1;
 	i += 3;
 
 	// year
@@ -834,9 +834,9 @@ void CGedtreeApp::OnFont()
 			m_fontRescale = (double)newheight/(double)oldheight;
 		else
 			m_fontRescale = 1;
-		m_nMaxIndiWidth *= m_fontRescale;
-		m_nIndiBorderX *= m_fontRescale;
-		m_nIndiBorderY *= m_fontRescale;
+		m_nMaxIndiWidth = lround(m_nMaxIndiWidth*m_fontRescale);
+		m_nIndiBorderX = lround(m_nIndiBorderX*m_fontRescale);
+		m_nIndiBorderY = lround(m_nIndiBorderY*m_fontRescale);
 
 		ResetAllDocuments(CGedtreeView::font);
 

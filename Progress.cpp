@@ -75,7 +75,7 @@ int CProgress::ExitInstance()
 	return CWinThread::ExitInstance();
 }
 
-void CProgress::Reset(const CString& strMessage, int cItem)
+void CProgress::Reset(const CString& strMessage, ULONGLONG cItem)
 {
 	WaitForReady();
 
@@ -91,7 +91,7 @@ void CProgress::Reset(const CString& strMessage, int cItem)
 	Ready();
 }
 
-void CProgress::Set(int cFinished, CString strDetail)
+void CProgress::Set(ULONGLONG cFinished, CString strDetail)
 {
 	WaitForReady();
 

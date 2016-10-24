@@ -356,8 +356,8 @@ void CIndividual::Calc()
 
 	theApp.GetDC()->DrawText(m_strTreeDisplay,&rrr,DT_CALCRECT|nDrawFormat);
 	r = rrr;
-	m_rectText.top *= theApp.m_fontRescale;
-	m_rectText.left *= theApp.m_fontRescale;
+	m_rectText.top = lround(m_rectText.top*theApp.m_fontRescale);
+	m_rectText.left = lround(m_rectText.left*theApp.m_fontRescale);
 	m_rectText.right = m_rectText.left+r.Width();
 	m_rectText.bottom = m_rectText.top+r.Height();
 	m_rectFrame = m_rectText;
@@ -389,7 +389,7 @@ void CIndividual::MoveTo(const CPoint& point)
 void CIndividual::Shift(const CSize& sizShift)
 {
 	double scale = GetScale();
-	ShiftUnscaled(CSize(sizShift.cx*scale,sizShift.cy*scale));
+	ShiftUnscaled(CSize(lround(sizShift.cx*scale), lround(sizShift.cy*scale)));
 }
 
 void CIndividual::ShiftUnscaled(const CSize& sizShift)
@@ -418,14 +418,14 @@ double CIndividual::GetScale()
 void CIndividual::CalcScale()
 {
 	double scale = GetScale();
-	m_rectScaledFrame.top = m_rectFrame.top/scale;
-	m_rectScaledFrame.left = m_rectFrame.left/scale;
-	m_rectScaledFrame.bottom = m_rectFrame.bottom/scale;
-	m_rectScaledFrame.right = m_rectFrame.right/scale;
-	m_rectScaledText.top = m_rectText.top/scale;
-	m_rectScaledText.left = m_rectText.left/scale;
-	m_rectScaledText.bottom = m_rectText.bottom/scale;
-	m_rectScaledText.right = m_rectText.right/scale;
+	m_rectScaledFrame.top = lround(m_rectFrame.top/scale);
+	m_rectScaledFrame.left = lround(m_rectFrame.left/scale);
+	m_rectScaledFrame.bottom = lround(m_rectFrame.bottom/scale);
+	m_rectScaledFrame.right = lround(m_rectFrame.right/scale);
+	m_rectScaledText.top = lround(m_rectText.top/scale);
+	m_rectScaledText.left = lround(m_rectText.left/scale);
+	m_rectScaledText.bottom = lround(m_rectText.bottom/scale);
+	m_rectScaledText.right = lround(m_rectText.right/scale);
 	if (m_rectScaledFrame.Width()<MIN_INDI_SIZE.cx)
 		m_rectScaledFrame.right = m_rectScaledFrame.left+MIN_INDI_SIZE.cx;
 	if (m_rectScaledFrame.Height()<MIN_INDI_SIZE.cy)
@@ -552,8 +552,8 @@ BOOL CIndividual::Select(BOOL bSelect)
 BOOL CIndividual::MoveToIsInBounds(CPoint& pt)
 {
 	CSize shift = pt-m_rectFrame.TopLeft();
-	shift.cx *= GetScale();
-	shift.cy *= GetScale();
+	shift.cx = lround(shift.cx*GetScale());
+	shift.cy  = lround(shift.cy*GetScale());
 	MyRect r = m_rectFrame;
 	r += shift;
 
@@ -570,8 +570,8 @@ BOOL CIndividual::MoveToIsInBounds(CPoint& pt)
 	if (r.right>rectBounds.right)
 		szUnshift.cx = rectBounds.right-r.right;
 
-	szUnshift.cx /= GetScale();
-	szUnshift.cy /= GetScale();
+	szUnshift.cx = lround(szUnshift.cx/GetScale());
+	szUnshift.cy = lround(szUnshift.cy/GetScale());
 
 	BOOL bOut = szUnshift.cx||szUnshift.cy;
 	if (bOut)
@@ -2637,7 +2637,7 @@ bool list_contains(list<T> lst, const T& e)
 
 extern int childdx;
 
-void CIndividual::setSeqWithSpouses(double& /*seq*/, pair<double,double> lev_bounds[], bool left, list<CIndividual*>& cleannext)
+void CIndividual::setSeqWithSpouses(double& /*seq*/, pair<int,int> lev_bounds[], bool left, list<CIndividual*>& cleannext)
 {
 //	if (m_bMark)
 //		return;

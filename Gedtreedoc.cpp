@@ -898,14 +898,14 @@ void CGedtreeDoc::CalcScale()
 	double nScale(1);
 	if (m_pDL) nScale = m_pDL->GetScale();
 
-	m_rectBounds.top    = m_rectUnscaledBounds.top   /nScale;
-	m_rectBounds.left   = m_rectUnscaledBounds.left  /nScale;
-	m_rectBounds.bottom = m_rectUnscaledBounds.bottom/nScale;
-	m_rectBounds.right  = m_rectUnscaledBounds.right /nScale;
-	m_rectBoundsNoBorder.top    = m_rectUnscaledBoundsNoBorder.top   /nScale;
-	m_rectBoundsNoBorder.left   = m_rectUnscaledBoundsNoBorder.left  /nScale;
-	m_rectBoundsNoBorder.bottom = m_rectUnscaledBoundsNoBorder.bottom/nScale;
-	m_rectBoundsNoBorder.right  = m_rectUnscaledBoundsNoBorder.right /nScale;
+	m_rectBounds.top    = lround(m_rectUnscaledBounds.top   /nScale);
+	m_rectBounds.left   = lround(m_rectUnscaledBounds.left  /nScale);
+	m_rectBounds.bottom = lround(m_rectUnscaledBounds.bottom/nScale);
+	m_rectBounds.right  = lround(m_rectUnscaledBounds.right /nScale);
+	m_rectBoundsNoBorder.top    = lround(m_rectUnscaledBoundsNoBorder.top   /nScale);
+	m_rectBoundsNoBorder.left   = lround(m_rectUnscaledBoundsNoBorder.left  /nScale);
+	m_rectBoundsNoBorder.bottom = lround(m_rectUnscaledBoundsNoBorder.bottom/nScale);
+	m_rectBoundsNoBorder.right  = lround(m_rectUnscaledBoundsNoBorder.right /nScale);
 }
 
 CRect CGedtreeDoc::GetBounds()
@@ -2072,7 +2072,7 @@ void CGedtreeDoc::htmlIndex(int iLevel, int iBase, const wstring& docid, wostrea
 
 	os << L"</tr>" << endl;
 
-	for (i = 0; i<rBase.size(); ++i)
+	for (i = 0; i<(int)rBase.size(); ++i)
 	{
 		os << L"<tr>" << endl;
 		if (!xlev)

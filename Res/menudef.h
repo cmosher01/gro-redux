@@ -13,12 +13,8 @@ BEGIN\
     MENUITEM SEPARATOR\
     MENUITEM "Export tree as &RTF...",      ID_FILE_RTF\
     MENUITEM "Export tree as &HTML...",     ID_FILE_HTML\
-	MENUITEM "&Web server..."               ID_FILE_SERVE\
     MENUITEM SEPARATOR\
     MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED\
-    MENUITEM SEPARATOR\
-    MENUITEM "Se&tup...",                   ID_FILE_SETUP\
-    MENUITEM "Register...",                 ID_FILE_REGISTER\
     MENUITEM SEPARATOR\
     MENUITEM "E&xit",                       ID_APP_EXIT
 
@@ -70,6 +66,4 @@ BEGIN\
 #define menuHelp \
 POPUP "&Help"\
 BEGIN\
-    MENUITEM "http://go.to/gro",            ID_WEB_SITE\
-    MENUITEM SEPARATOR\
     MENUITEM "&About GRO...",               ID_APP_ABOUT

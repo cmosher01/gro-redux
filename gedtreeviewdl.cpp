@@ -285,8 +285,8 @@ void CGedtreeViewDL::PrintPages(CMyDC& dc, const MyRect& draw)
 
 	CGedtreeDoc* pDoc = GetDocument();
 	CRect rect(pDoc->GetBounds());
-	int x = theApp.m_sizePage.cx/GetScale();
-	int y = theApp.m_sizePage.cy/GetScale();
+	LONG x = lround(theApp.m_sizePage.cx/GetScale());
+	LONG y = lround(theApp.m_sizePage.cy/GetScale());
 	int pageswide = (rect.Width()+x-1)/x;
 
 	CRect drawdoc;
@@ -307,7 +307,7 @@ void CGedtreeViewDL::PrintPages(CMyDC& dc, const MyRect& draw)
 	int pageFirstOfRow(drawdoc.left/x+drawdoc.top/y*pageswide);
 	int pageLastOfRow(drawdoc.right/x+drawdoc.top/y*pageswide);
 	int pageLast(drawdoc.right/x+drawdoc.bottom/y*pageswide);
-	int f(__max(1,5/GetScale()));
+	int f(__max(1,lround(5/GetScale())));
 	CSize offset(f,f);
 	CString s;
 	while (pageLastOfRow <= pageLast)
@@ -708,8 +708,8 @@ void CGedtreeViewDL::OnMouseMove(UINT nFlags, CPoint point)
 			if (rectIndis.right>rectBounds.right)
 				szUnshift.cx = rectBounds.right-rectIndis.right;
 
-			szUnshift.cx /= GetScale();
-			szUnshift.cy /= GetScale();
+			szUnshift.cx = lround(szUnshift.cx/GetScale());
+			szUnshift.cy = lround(szUnshift.cy/GetScale());
 
 
 			ShiftSelectedIndis(szUnshift);
@@ -839,7 +839,7 @@ void CGedtreeViewDL::CleanAll()
 	// preliminary stuff
 	CGedtreeDoc* pDoc = GetDocument();
 
-	double cIndi = pDoc->m_rIndividual.GetSize();
+	ULONGLONG cIndi = pDoc->m_rIndividual.GetSize();
 	if (cIndi <= 1)
 		return;
 
@@ -934,11 +934,11 @@ void CGedtreeViewDL::CleanAll()
 		}
 		// sort
 		prg.Reset("Sorting branches.",rma.size()-1);
-		int xxx = rma.size()-1;
-		for (int s1(0); s1<xxx; ++s1)
+		size_t xxx = rma.size()-1;
+		for (size_t s1(0); s1<xxx; ++s1)
 		{
 			prg.Set(s1+1);
-			for (int s2(s1+1); s2<rma.size(); ++s2)
+			for (size_t s2(s1+1); s2<rma.size(); ++s2)
 			{
 				if (rma[s1].first < rma[s2].first)
 				{
@@ -1062,9 +1062,9 @@ void CGedtreeViewDL::CleanAll()
 
 
 
-	pair<double,double>* lev_bounds = new pair<double,double>[nlev];
+	pair<int,int>* lev_bounds = new pair<int,int>[nlev];
 	for (i = 0; i < nlev; ++i)
-		lev_bounds[i] = pair<double,double>(1,1);
+		lev_bounds[i] = pair<int,int>(1,1);
 
 	pDoc->ClearAllIndividuals();
 	prg.Reset("Moving branches.",rptoclean2.size());
@@ -1160,7 +1160,7 @@ void CGedtreeViewDL::CleanAll()
 				}
 			}
 		}
-		double maxx(-10000);
+		LONG maxx(-10000);
 		bool any(false);
 		for (i = 0; i < nlev; ++i)
 		{
@@ -1463,8 +1463,8 @@ void CGedtreeViewDL::SetScale(int nScale)
 	rectClient += GetScrollPosition();
 
 	CPoint pointScroll = rectClient.CenterPoint();
-	pointScroll.x *= GetScale();
-	pointScroll.y *= GetScale();
+	pointScroll.x = lround(pointScroll.x*GetScale());
+	pointScroll.y = lround(pointScroll.y*GetScale());
 
 	m_nScale = nScale;
 
@@ -1486,8 +1486,8 @@ void CGedtreeViewDL::SetScale(int nScale)
 
 	SetTotalSize();
 
-	pointScroll.x /= GetScale();
-	pointScroll.y /= GetScale();
+	pointScroll.x = lround(pointScroll.x/GetScale());
+	pointScroll.y = lround(pointScroll.y/GetScale());
 
 	CSize szHalfClient(rectClient.Width()/2,rectClient.Height()/2);
 
@@ -1757,8 +1757,8 @@ CPoint CGedtreeViewDL::GetScrollPoint()
 	rectClient += GetScrollPosition();
 
 	CPoint pointScroll = rectClient.CenterPoint();
-	pointScroll.x *= GetScale();
-	pointScroll.y *= GetScale();
+	pointScroll.x = lround(pointScroll.x*GetScale());
+	pointScroll.y = lround(pointScroll.y*GetScale());
 
 	return pointScroll;
 }

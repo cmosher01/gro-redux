@@ -79,9 +79,9 @@ public:
 	WebServer* m_pWebServer;
 	ULARGE_INTEGER m_ulBuildTime;
 	wstring m_strBuildTime;
-	double m_nMaxIndiWidth;
-	double m_nIndiBorderX;
-	double m_nIndiBorderY;
+	int m_nMaxIndiWidth;
+	int m_nIndiBorderX;
+	int m_nIndiBorderY;
 
 	class groch : public WebServer::ContentHandler
 	{

@@ -15,7 +15,7 @@ public:
 
 // Attributes
 protected:
-	int m_cItem;
+	ULONGLONG m_cItem;
 	CProgressCtrl m_progress;
 	CProgressDlg* m_pDlg;
 	CEvent m_evtReady;
@@ -24,8 +24,8 @@ public:
 
 // Operations
 public:
-	void Reset(const CString& strMessage = "", int cItem = 0);
-	void Set(int cFinished, CString strDetail = "");
+	void Reset(const CString& strMessage = "", ULONGLONG cItem = 0);
+	void Set(ULONGLONG cFinished, CString strDetail = "");
 
 // Overrides
 	// ClassWizard generated virtual function overrides

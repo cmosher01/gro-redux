@@ -207,26 +207,26 @@ double CFamily::GetScale()
 void CFamily::CalcScale()
 {
 	double scale = GetScale();
-	m_ptsc1.x = m_pt1.x/scale;
-	m_ptsc1.y = m_pt1.y/scale;
-	m_ptsc2.x = m_pt2.x/scale;
-	m_ptsc2.y = m_pt2.y/scale;
-	m_ptscP.x = m_ptP.x/scale;
-	m_ptscP.y = m_ptP.y/scale;
-	m_ptscC1.x = m_ptC1.x/scale;
-	m_ptscC1.y = m_ptC1.y/scale;
-	m_ptscC2.x = m_ptC2.x/scale;
-	m_ptscC2.y = m_ptC2.y/scale;
+	m_ptsc1.x = lround(m_pt1.x/scale);
+	m_ptsc1.y = lround(m_pt1.y/scale);
+	m_ptsc2.x = lround(m_pt2.x/scale);
+	m_ptsc2.y = lround(m_pt2.y/scale);
+	m_ptscP.x = lround(m_ptP.x/scale);
+	m_ptscP.y = lround(m_ptP.y/scale);
+	m_ptscC1.x = lround(m_ptC1.x/scale);
+	m_ptscC1.y = lround(m_ptC1.y/scale);
+	m_ptscC2.x = lround(m_ptC2.x/scale);
+	m_ptscC2.y = lround(m_ptC2.y/scale);
 	m_rpointscChild.RemoveAll();
 	for (int i(0); i<m_rpointChild.GetSize(); i++)
 	{
-		CPoint pt(m_rpointChild[i].x/scale,m_rpointChild[i].y/scale);
+		CPoint pt(lround(m_rpointChild[i].x/scale),lround(m_rpointChild[i].y/scale));
 		m_rpointscChild.Add(pt);
 	}
-	m_rectScaledBounds.top = m_rectBounds.top/scale;
-	m_rectScaledBounds.left = m_rectBounds.left/scale;
-	m_rectScaledBounds.bottom = m_rectBounds.bottom/scale;
-	m_rectScaledBounds.right = m_rectBounds.right/scale;
+	m_rectScaledBounds.top = lround(m_rectBounds.top/scale);
+	m_rectScaledBounds.left = lround(m_rectBounds.left/scale);
+	m_rectScaledBounds.bottom = lround(m_rectBounds.bottom/scale);
+	m_rectScaledBounds.right = lround(m_rectBounds.right/scale);
 
 	m_rectScaledBoundsDraw.top = m_rectScaledBounds.top-1;
 	m_rectScaledBoundsDraw.left = m_rectScaledBounds.left-1;
@@ -277,7 +277,7 @@ void CFamily::OnDraw(CMyDC& dc)
 	{
 		CPoint p1(m_ptsc1);
 		CPoint p2(m_ptsc2);
-		int nBarHeight(BAR_HEIGHT/GetScale());
+		int nBarHeight(lround(BAR_HEIGHT/GetScale()));
 		if (dc.Print())
 		{
 			ScaleForPrint(p1);
@@ -324,7 +324,7 @@ void CFamily::OnDraw(CMyDC& dc)
 			}
 			else
 			{
-				int nChildHeight(CHILD_HEIGHT/GetScale());
+				int nChildHeight(lround(CHILD_HEIGHT/GetScale()));
 				if (dc.Print())
 					nChildHeight *= 4;
 				dc.DrawLine(pt,CPoint(pt.x,p1.y-nChildHeight),!!m_bHidden);

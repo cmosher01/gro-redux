@@ -110,7 +110,7 @@ public:
 	int GetSimpleBirth();
 	void GetSortedSpouseFamilies(CArray<int,int>& riSpouseToFamily);
 	void setLevel(int i = 0);
-	void setSeqWithSpouses(double& seq, std::pair<double,double> lev_bounds[], bool left, std::list<CIndividual*>& rptoclean = std::list<CIndividual*>());
+	void setSeqWithSpouses(double& seq, std::pair<int,int> lev_bounds[], bool left, std::list<CIndividual*>& rptoclean = std::list<CIndividual*>());
 	bool setMaxMaleIf(int n) { bool is = n>m_maxmale; if (is) m_maxmale = n; return is; }
 	void markWithSpouses();
 	void setRootWithSpouses(CIndividual* proot);
