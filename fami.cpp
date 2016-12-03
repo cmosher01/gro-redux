@@ -186,7 +186,9 @@ void CFamily::CalcDraw()
 CPoint CFamily::CalcParPt(CPoint pt1, CPoint pt2)
 {
 	CSize d(pt2-pt1);
-	double dist = sqrt(d.cx*d.cx+d.cy*d.cy);
+	double x_squared((double)d.cx*(double)d.cx);
+	double y_squared((double)d.cy*(double)d.cy);
+	double dist = sqrt(x_squared+y_squared);
 
 	return pt1+CSize(
 		(int)(CHILD_LINE_DISTANCE*d.cx/dist),
