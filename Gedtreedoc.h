@@ -141,6 +141,7 @@ protected:
 	CProgress* m_pPrg;
 	int m_nPrg;
 	BOOL m_bAnsel;
+	BOOL m_bUtf8;
 	BOOL m_bUnicode;
 	BOOL m_bUnicodeFlagInFile;
 	BOOL m_bReverse;

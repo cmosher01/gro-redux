@@ -89,7 +89,7 @@ void CHeader::PutToTree()
 		m_pDoc->ResetSubValue(h,"VERS","5.5");
 		m_pDoc->ResetSubValue(h,"FORM","LINEAGE-LINKED");
 
-	m_pDoc->ResetSubValue(m_hTreeItem,"CHAR",theApp.SaveAsUnicode()?"UNICODE":"ASCII");
+	m_pDoc->ResetSubValue(m_hTreeItem,"CHAR",theApp.SaveAsUnicode()?"UTF-8":"ASCII");
 
 	char cPrefix = CGedRecord::GetPrefix("SUBM");
 	CString strSubmID;

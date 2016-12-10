@@ -19,9 +19,8 @@ CUnicodeSel::CUnicodeSel(CWnd* pParent /*=NULL*/)
 	: CDialog(CUnicodeSel::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CUnicodeSel)
-	m_bUnicode = FALSE;
+	m_bUnicode = TRUE;
 	//}}AFX_DATA_INIT
-	ReadFromRegistry();
 }
 
 
@@ -31,17 +30,6 @@ void CUnicodeSel::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CUnicodeSel)
 	DDX_Radio(pDX, IDC_ASCII, m_bUnicode);
 	//}}AFX_DATA_MAP
-}
-
-void CUnicodeSel::ReadFromRegistry()
-{
-	theApp.GetReg("Unicode","Unicode",m_bUnicode,FALSE);
-}
-
-void CUnicodeSel::WriteToRegistry()
-{
-	if (!theApp.m_info.m_bPermanent)
-		theApp.PutReg("Unicode","Unicode",m_bUnicode);
 }
 
 BEGIN_MESSAGE_MAP(CUnicodeSel, CDialog)
@@ -56,5 +44,4 @@ END_MESSAGE_MAP()
 void CUnicodeSel::OnOK() 
 {
 	CDialog::OnOK();
-	WriteToRegistry();
 }

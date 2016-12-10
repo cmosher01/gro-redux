@@ -26,9 +26,6 @@ public:
 
 // Implementation
 protected:
-	void ReadFromRegistry();
-	void WriteToRegistry();
-
 	// Generated message map functions
 	//{{AFX_MSG(CUnicodeSel)
 	virtual void OnOK();
