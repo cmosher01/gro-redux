@@ -41,6 +41,9 @@ void CAppInfo::Read()
 		m_nAppDriveType==DRIVE_CDROM||
 		m_nAppDriveType==DRIVE_REMOTE;
 
+	// avoid registry stuff, for now:
+	m_bPermanent = TRUE;
+
 	DWORD h;
 	DWORD sizBuf = ::GetFileVersionInfoSize((LPTSTR)(LPCTSTR)m_strAppPath,&h);
 	if (!sizBuf) throw CError();

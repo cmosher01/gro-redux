@@ -914,7 +914,8 @@ void CGedtreeApp::WriteFontToRegistry(const LOGFONT* plf)
 void CGedtreeApp::ReadFontFromRegistry()
 {
 	LOGFONT lfDef;
-	::GetObject((HFONT)::GetStockObject(DEFAULT_GUI_FONT),sizeof(LOGFONT),&lfDef);
+//	::GetObject((HFONT)::GetStockObject(DEFAULT_GUI_FONT),sizeof(LOGFONT),&lfDef);
+	::SystemParametersInfo(SPI_GETICONTITLELOGFONT, sizeof(LOGFONT), &lfDef, 0);
 
 	LOGFONT lf;
 	GetRegFont(lfHeight);
