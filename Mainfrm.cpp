@@ -164,7 +164,7 @@ void CMainFrame::OnActivateApp(BOOL bActive, DWORD hTask)
 
 void CMainFrame::OnWebSite()
 {
-	::ShellExecute(NULL,L"open",L"http://go.to/gro",NULL,NULL,SW_SHOWNORMAL);
+	//::ShellExecute(NULL,L"open",L"http://go.to/gro",NULL,NULL,SW_SHOWNORMAL);
 }
 
 void CMainFrame::OnClose() 

@@ -83,10 +83,12 @@ void CHeader::PutToTree()
 		m_pDoc->ResetSubValue(h,"VERS",theApp.m_info.m_strVersion);
 		HTREEITEM h2 = m_pDoc->ResetSubValue(h,"CORP",theApp.m_info.m_strCompany);
 			HTREEITEM h3 = m_pDoc->ResetSubValue(h2,"ADDR","41 Brook Pine Drive");
-				m_pDoc->ResetSubValue(h3,"CONT","Shelton, CT 06484-5912");
+				m_pDoc->ResetSubValue(h3,"CONT","Shelton, CT 06484-5912",TRUE);
+				m_pDoc->ResetSubValue(h3,"CONT","USA",TRUE);
+			m_pDoc->ResetSubValue(h2,"EMAIL","cmosher01@gmail.com");
 
 	h = m_pDoc->ResetSubValue(m_hTreeItem,"GEDC","",FALSE,TRUE);
-		m_pDoc->ResetSubValue(h,"VERS","5.5");
+		m_pDoc->ResetSubValue(h,"VERS","5.5.1");
 		m_pDoc->ResetSubValue(h,"FORM","LINEAGE-LINKED");
 
 	m_pDoc->ResetSubValue(m_hTreeItem,"CHAR",theApp.SaveAsUnicode()?"UTF-8":"ASCII");

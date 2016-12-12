@@ -93,9 +93,7 @@ CString CAbout::GetAbout()
 	else if (nAppDriveType==DRIVE_REMOTE)
 		s += "(network) ";
 
-	CString strApp = theApp.m_info.m_strAppPath;
-	strApp.MakeLower();
-	s += strApp;
+	s += theApp.m_info.m_strAppPath;
 
 	return s;
 }

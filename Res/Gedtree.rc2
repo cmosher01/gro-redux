@@ -50,12 +50,12 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "Comments", "This program reads and edits GEDCOM format files.\0"
-            VALUE "CompanyName", "Christopher Alan Mosher\0"
+            VALUE "Comments", "This program edits GEDCOM files.\0"
+            VALUE "CompanyName", "http://mosher.mine.nu/gotogro\0"
             VALUE "FileDescription", "Genealogy Research Organizer\0"
             VALUE "FileVersion", VS
             VALUE "InternalName", "GRO\0"
-            VALUE "LegalCopyright", "© 1997-2003, Christopher Alan Mosher, Shelton, CT.\0"
+            VALUE "LegalCopyright", "© 1997-2016, Christopher Alan Mosher, Shelton, CT.\0"
             VALUE "OriginalFilename", "GRO.EXE\0"
             VALUE "ProductName", "Genealogy Research Organizer\0"
             VALUE "ProductVersion", VS
