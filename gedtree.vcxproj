@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -175,8 +175,8 @@
     <ClCompile Include="GedCmd.cpp" />
     <ClCompile Include="gedline.cpp" />
     <ClCompile Include="gedrecord.cpp" />
-    <ClCompile Include="gedtree.cpp" />
-    <ClCompile Include="gedtreeDoc.cpp" />
+    <ClCompile Include="Gedtree.cpp" />
+    <ClCompile Include="Gedtreedoc.cpp" />
     <ClCompile Include="Gedtreeview.cpp" />
     <ClCompile Include="gedtreeviewdl.cpp" />
     <ClCompile Include="gedtreeviewil.cpp" />
@@ -187,7 +187,7 @@
     <ClCompile Include="Holiday.cpp" />
     <ClCompile Include="indi.cpp" />
     <ClCompile Include="IndiClip.cpp" />
-    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="Mainfrm.cpp" />
     <ClCompile Include="mydc.cpp" />
     <ClCompile Include="name.cpp" />
     <ClCompile Include="note.cpp" />
@@ -201,7 +201,7 @@
     <ClCompile Include="rfor.cpp" />
     <ClCompile Include="Setup.cpp" />
     <ClCompile Include="sour.cpp" />
-    <ClCompile Include="StdAfx.cpp">
+    <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -225,7 +225,7 @@
     <ClInclude Include="bibrtftpl.h" />
     <ClInclude Include="BigView.h" />
     <ClInclude Include="BirthCalc.h" />
-    <ClInclude Include="CHILDFRM.H" />
+    <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="ChooseFont.h" />
     <ClInclude Include="cita.h" />
     <ClInclude Include="ConfirmDelete.h" />
@@ -247,10 +247,10 @@
     <ClInclude Include="event.h" />
     <ClInclude Include="fami.h" />
     <ClInclude Include="Find.h" />
-    <ClInclude Include="gedcmd.h" />
+    <ClInclude Include="GedCmd.h" />
     <ClInclude Include="gedline.h" />
     <ClInclude Include="gedrecord.h" />
-    <ClInclude Include="GEDTREE.H" />
+    <ClInclude Include="Gedtree.h" />
     <ClInclude Include="Gedtreedoc.h" />
     <ClInclude Include="Gedtreeview.h" />
     <ClInclude Include="gedtreeviewdl.h" />
@@ -266,7 +266,7 @@
     <ClInclude Include="IndiClip.h" />
     <ClInclude Include="indirtftpl.h" />
     <ClInclude Include="inditpl.h" />
-    <ClInclude Include="MAINFRM.H" />
+    <ClInclude Include="Mainfrm.h" />
     <ClInclude Include="mydc.h" />
     <ClInclude Include="MyRect.h" />
     <ClInclude Include="name.h" />
@@ -279,13 +279,13 @@
     <ClInclude Include="reg.h" />
     <ClInclude Include="Register.h" />
     <ClInclude Include="repo.h" />
-    <ClInclude Include="RES\menudef.h" />
+    <ClInclude Include="Res\menudef.h" />
     <ClInclude Include="rfor.h" />
     <ClInclude Include="Setup.h" />
     <ClInclude Include="sour.h" />
     <ClInclude Include="sourrtftpl.h" />
     <ClInclude Include="sourtpl.h" />
-    <ClInclude Include="STDAFX.H" />
+    <ClInclude Include="Stdafx.h" />
     <ClInclude Include="thinsock.h" />
     <ClInclude Include="UnicodeSel.h" />
     <ClInclude Include="util.h" />
@@ -296,19 +296,19 @@
     <ClInclude Include="Zoom.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\citation.ico" />
-    <Image Include="RES\gedtree.ico" />
-    <Image Include="RES\ged_il.ico" />
-    <Image Include="RES\ged_in.ico" />
-    <Image Include="RES\ged_pd.ico" />
-    <Image Include="RES\ged_tre.ico" />
-    <Image Include="res\idd_edit.ico" />
-    <Image Include="res\idd_repo.ico" />
-    <Image Include="res\source.ico" />
-    <Image Include="RES\TOOLBAR.BMP" />
+    <Image Include="Res\citation.ico" />
+    <Image Include="Res\gedtree.ico" />
+    <Image Include="Res\ged_il.ico" />
+    <Image Include="Res\ged_in.ico" />
+    <Image Include="Res\ged_pd.ico" />
+    <Image Include="Res\ged_tre.ico" />
+    <Image Include="Res\idd_edit.ico" />
+    <Image Include="Res\idd_repo.ico" />
+    <Image Include="Res\source.ico" />
+    <Image Include="Res\Toolbar.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="RES\GEDTREE.RC2" />
+    <CustomBuild Include="Res\Gedtree.rc2" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
