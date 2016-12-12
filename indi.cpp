@@ -146,7 +146,6 @@ BOOL CIndividual::AddSpouseToFamily(int iSpouseToFamily, BOOL bCheckFirst)
 		m_riSpouseToFamily.Add(iSpouseToFamily);
 		CFamily& fami = m_pDoc->m_rFamily[iSpouseToFamily];
 		fami.CalcID();
-		m_pDoc->ResetSubValue(m_hTreeItem,"FAMS",fami.GetID(),TRUE);
 	}
 
 	return bAdd;
@@ -766,8 +765,6 @@ BOOL CIndividual::GetFromTree()
 			bXY = TRUE;
 			PlaceAt(GetXY(pglChild->m_strVal));
 		}
-		else if (pglChild->m_strTok=="FAMS")
-			m_pDoc->DeleteItem(htiSub);
 		else if (pglChild->m_strTok=="FAMC")
 			m_pDoc->DeleteItem(htiSub);
 		else if (

@@ -601,6 +601,7 @@ void CFamily::ConnectParent(CIndividual* pIndi)
 		CIndividual& indi = m_pDoc->m_rIndividual[*piSpouse];
 		indi.AddSpouse(iOtherSpouse,TRUE);
 		indi.AddSpouseToFamily(m_i,TRUE);
+		m_pDoc->ResetSubValue(indi.m_hTreeItem, "FAMS", GetID(), TRUE);
 
 		for (int i(0); i<m_riChild.GetSize(); i++)
 		{
