@@ -765,8 +765,6 @@ BOOL CIndividual::GetFromTree()
 			bXY = TRUE;
 			PlaceAt(GetXY(pglChild->m_strVal));
 		}
-		else if (pglChild->m_strTok=="FAMC")
-			m_pDoc->DeleteItem(htiSub);
 		else if (
 			pglChild->m_strTok=="EVEN"||
 			pglChild->m_strTok=="BIRT"||

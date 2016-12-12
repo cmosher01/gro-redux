@@ -540,7 +540,6 @@ void CFamily::GetFromTree()
 		m_pDoc->m_rIndividual[m_riChild[i]].m_iFather = m_iHusband;
 		m_pDoc->m_rIndividual[m_riChild[i]].m_iMother = m_iWife;
 		m_pDoc->m_rIndividual[m_riChild[i]].m_iChildToFamily = m_i;
-		m_pDoc->ResetSubValue(m_pDoc->m_rIndividual[m_riChild[i]].m_hTreeItem,"FAMC",GetID(),FALSE);
 	}
 }
 
