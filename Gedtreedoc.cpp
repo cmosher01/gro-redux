@@ -468,9 +468,6 @@ void CGedtreeDoc::ReadFromArchive(CArchive& ar)
 		{
 			if (strLine.GetLength())
 			{
-				if (strLine.Right(1) == '\x1a')
-					strLine = strLine.Left(strLine.GetLength()-1);
-
 				CGedLine* pgl = new CGedLine(this,strLine);
 				int levCur = pgl->Level();
 
