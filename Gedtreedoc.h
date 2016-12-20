@@ -179,7 +179,6 @@ protected:
 	BOOL GetNextTraverse(HTREEITEM& htvi, int* cLev = NULL);
 	void DeleteGedLine(HTREEITEM hTreeItem);
 	void BreakConcLines(const CString& strValue, CArray<CString,LPCTSTR>& rstrTok, CArray<CString,LPCTSTR>& rstrVal);
-	void ResetIDs();
 	void TestUnicode(CFile* pFile);
 	BOOL GetLine(CArchive& ar, CString& str);
 	void PutLine(CArchive& ar, const CString& str);

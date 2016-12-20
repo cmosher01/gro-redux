@@ -3,6 +3,23 @@
 #include "gedrecord.h"
 #include "gedtreedoc.h"
 #include "gedline.h"
+#include <random>
+#include <string>
+
+wchar_t alphabet[] = L"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+static wstring createId() {
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dis(0, 51);
+	wchar_t id[21];
+	for (int i(0); i < 20; ++i) {
+		int r = dis(gen);
+		wchar_t c = alphabet[r];
+		id[i] = c;
+	}
+	id[20] = '\0';
+	return wstring(id);
+}
 
 CGedRecord::CGedRecord(CGedtreeDoc* pDoc, HTREEITEM hTreeItem):
 	m_pDoc(pDoc),
@@ -74,8 +91,7 @@ char CGedRecord::GetPrefix(const CString& strTok)
 void CGedRecord::CalcID()
 {
 	CGedLine* pgl = (CGedLine*)m_pDoc->m_tree.GetItemData(m_hTreeItem);
-	_TCHAR cIDPrefix = GetPrefix(pgl->m_strTok);
-	m_strID.Format(_T("%c%d"),cIDPrefix,m_i);
+	m_strID.SetString(createId().c_str());
 	pgl->m_strID = m_strID;
 }
 

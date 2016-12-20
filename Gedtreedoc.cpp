@@ -754,8 +754,6 @@ void CGedtreeDoc::GetFromTree()
 		m_pPrg->Set(++cRec);
 	}
 
-	ResetIDs();
-
 	m_mapIDToIndividual.RemoveAll();
 	m_mapIDToFamily.RemoveAll();
 	m_mapIDToSource.RemoveAll();
@@ -1354,78 +1352,6 @@ void CGedtreeDoc::UpdateTitle()
 	POSITION pos = GetFirstViewPosition();
 	while (pos)
 		((CGedtreeView*)GetNextView(pos))->UpdateTitle();
-}
-
-void CGedtreeDoc::ResetIDs()
-{
-	int i, cRec;
-
-	m_pPrg->Reset(
-		"Recalculating individual IDs.",
-		m_rIndividual.GetSize());
-	cRec = 0;
-	for (i = 0; i<m_rIndividual.GetSize(); i++)
-	{
-		CIndividual& indi = m_rIndividual[i];
-		indi.CalcID();
-		m_pPrg->Set(++cRec);
-	}
-
-	m_pPrg->Reset(
-		"Recalculating family IDs.",
-		m_rFamily.GetSize());
-	cRec = 0;
-	for (i = 0; i<m_rFamily.GetSize(); i++)
-	{
-		CFamily& fami = m_rFamily[i];
-		fami.CalcID();
-		m_pPrg->Set(++cRec);
-	}
-
-	m_pPrg->Reset(
-		"Recalculating source IDs.",
-		m_rSource.GetSize());
-	cRec = 0;
-	for (i = 0; i<m_rSource.GetSize(); i++)
-	{
-		CSource& sour = m_rSource[i];
-		sour.CalcID();
-		m_pPrg->Set(++cRec);
-	}
-
-	m_pPrg->Reset(
-		"Recalculating repository IDs.",
-		m_rRepository.GetSize());
-	cRec = 0;
-	for (i = 0; i<m_rRepository.GetSize(); i++)
-	{
-		CRepository& repo = m_rRepository[i];
-		repo.CalcID();
-		m_pPrg->Set(++cRec);
-	}
-
-	m_pPrg->Reset(
-		"Recalculating note IDs.",
-		m_rNote.GetSize());
-	cRec = 0;
-	for (i = 0; i<m_rNote.GetSize(); i++)
-	{
-		CNote& note = m_rNote[i];
-		note.CalcID();
-		m_pPrg->Set(++cRec);
-	}
-
-	m_pPrg->Reset(
-		"Resetting all IDs.",
-		m_tree.GetCount());
-	cRec = 0;
-	HTREEITEM htvi(NULL);
-	while (GetNextTraverse(htvi))
-	{
-		CGedLine* pgl = (CGedLine*)m_tree.GetItemData(htvi);
-		pgl->CalcID();
-		m_pPrg->Set(++cRec,pgl->m_strID);
-	}
 }
 
 BOOL CGedtreeDoc::HasChildren(const CGedRecord& recParent)

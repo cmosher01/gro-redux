@@ -144,8 +144,6 @@ BOOL CIndividual::AddSpouseToFamily(int iSpouseToFamily, BOOL bCheckFirst)
 	if (bAdd)
 	{
 		m_riSpouseToFamily.Add(iSpouseToFamily);
-		CFamily& fami = m_pDoc->m_rFamily[iSpouseToFamily];
-		fami.CalcID();
 	}
 
 	return bAdd;
