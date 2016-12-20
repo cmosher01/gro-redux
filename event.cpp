@@ -92,7 +92,9 @@ void CEvt::PutToTree()
 	if (m_strNote.IsEmpty())
 	{
 		m_pDoc->DeleteSubValue(m_hTreeItem,"NOTE");
-		if (m_iNote>=0) m_pDoc->m_rNote[m_iNote].Delete();
+		// TODO: Fix bug here: cannot just delete this NOTE record because
+		// other EVEN.NOTE might point to it. For now, just leave it (possibly dangling).
+		// if (m_iNote>=0) m_pDoc->m_rNote[m_iNote].Delete();
 		m_iNote = -1;
 	}
 	else
@@ -111,6 +113,9 @@ void CEvt::PutToTree()
 					if (i>=0)
 					{
 						strValAsID = strValAsID.Left(i);
+						// TODO: what is going on here? This is trying to look up a NOTE, but
+						// the doc doesn't ever keep its maps around, so this will alwyas fail.
+						// I can't even figure out what the purpose of this whole "if (m_strNote[0]==cID)" thing is
 						m_iNote = m_pDoc->LookupNote(strValAsID);
 						if (m_iNote >= 0)
 							bFoundLink = true;
@@ -128,6 +133,7 @@ void CEvt::PutToTree()
 		}
 		if (bFoundLink)
 		{
+			// TODO: therefore, this is never reached:
 			m_pDoc->m_rNote[m_iNote].CalcID();
 		}
 		else
