@@ -189,12 +189,12 @@ void CIndividual::CalcFull()
 }
 
 /**
- *	Replace these characters, for use in XML documents:
- *	&lt; <  less than 
- *	&gt; >  greater than 
- *	&amp;  & ampersand  
- *	&apos; '  apostrophe 
- *	&quot; " quotation mark 
+ *  Replace these characters, for use in XML documents:
+ *  &lt; <  less than
+ *  &gt; >  greater than
+ *  &amp;  & ampersand
+ *  &apos; '  apostrophe
+ *  &quot; " quotation mark
 static void FixXML(CString& str)
 {
 	str.Replace(L"&",L"&amp;");
@@ -215,8 +215,8 @@ void CIndividual::Calc()
 
 
 //TEST BEGIN
-//	m_strTreeDisplay.Format("lev:%d\nseq:%f\npat:%d\n",m_nLevel,m_seq,m_maxmale);
-//	m_strTreeDisplay.Format("M:%d\n",m_maxmale);
+//  m_strTreeDisplay.Format("lev:%d\nseq:%f\npat:%d\n",m_nLevel,m_seq,m_maxmale);
+//  m_strTreeDisplay.Format("M:%d\n",m_maxmale);
 /*
 	m_strTreeDisplay += "\n----------------------\n";
 	CString smaxm;
@@ -755,8 +755,11 @@ BOOL CIndividual::GetFromTree()
 		CGedLine* pglChild = (CGedLine*)tree.GetItemData(htiSub);
 		if (pglChild->m_strTok=="NAME")
 		{
-			m_name.Set(m_pDoc,htiSub);
-			m_name.GetFromTree(pglChild->m_strVal);
+			if (!m_name.m_hTreeItem)
+			{
+				m_name.Set(m_pDoc,htiSub);
+				m_name.GetFromTree(pglChild->m_strVal);
+			}
 		}
 		else if (pglChild->m_strTok=="_XY")
 		{
@@ -2632,8 +2635,8 @@ extern int childdx;
 
 void CIndividual::setSeqWithSpouses(double& /*seq*/, pair<int,int> lev_bounds[], bool left, list<CIndividual*>& cleannext)
 {
-//	if (m_bMark)
-//		return;
+//  if (m_bMark)
+//      return;
 
 	list<CIndividual*> all_sps;
 	// build list of all spouses in this spouse group
