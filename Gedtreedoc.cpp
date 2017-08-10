@@ -310,6 +310,13 @@ uint32_t decode(uint32_t* state, uint32_t* codep, uint32_t c)
 	return (*state = utf8d[256 + *state * 16 + t]);
 }
 
+void encode_utf16_pair(uint32_t c, uint16_t *units)
+{
+	unsigned int code = c - 0x10000;
+	units[0] = 0xD800 | (code >> 10);
+	units[1] = 0xDC00 | (code & 0x3FF);
+}
+
 BOOL CGedtreeDoc::GetLine(CArchive& ar, CString& str)
 {
 	str.Empty();
@@ -330,6 +337,8 @@ BOOL CGedtreeDoc::GetLine(CArchive& ar, CString& str)
 			while (c != '\r' && c != '\n')
 			{
 				wchar_t tc;
+				uint32_t utf32TC(0);
+				wchar_t utf16TC[] = { 0, 0 };
 				if (m_bUtf8)
 				{
 					uint32_t codepoint;
@@ -342,9 +351,12 @@ BOOL CGedtreeDoc::GetLine(CArchive& ar, CString& str)
 						ar >> c2;
 						b = c2;
 					}
-					tc = codepoint;
-					if (tc >= 0x80) {
-						tc = tc;
+					utf32TC = codepoint;
+					if (utf32TC >= 0x00010000) {
+						encode_utf16_pair(utf32TC, (uint16_t*)utf16TC);
+					}
+					else {
+						tc = utf32TC;
 					}
 				}
 				else
@@ -361,8 +373,13 @@ BOOL CGedtreeDoc::GetLine(CArchive& ar, CString& str)
 						str += tc2;
 					}
 				}
-				if (tc)
+				if (utf16TC[0]) {
+					str += utf16TC[0];
+					str += utf16TC[1];
+				}
+				else if (tc) {
 					str += tc;
+				}
 				ar >> c;
 			}
 			ar >> m_byteLast; // '\n' (ignored);
