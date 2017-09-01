@@ -40,6 +40,7 @@
 #include <shlguid.h>
 #include <comdef.h>
 #include <shlobj.h>
+#include <strsafe.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -1710,6 +1711,26 @@ void CGedtreeApp::OnFileRegister()
 	}
 }
 
+void putIntoWindowsClipboard(const CString& s) {
+	const int cb((s.GetLength() + 1) * sizeof(TCHAR));
+
+	const HGLOBAL hglbCopy = ::GlobalAlloc(GMEM_DDESHARE, cb);
+	if (!hglbCopy) {
+		return;
+	}
+
+	const LPTSTR lpszCopy = (LPTSTR)::GlobalLock(hglbCopy);
+	::StringCchCopyW(lpszCopy, cb, (LPCWSTR)s);
+	::GlobalUnlock(hglbCopy);
+
+	if (!::OpenClipboard(NULL)) {
+		return;
+	}
+	::EmptyClipboard();
+	::SetClipboardData(CF_UNICODETEXT, hglbCopy);
+	::CloseClipboard();
+}
+
 void CGedtreeApp::Copy(CGedtreeDoc* pDocFrom, CGedtreeDoc* pDocTo)
 {
 	// maps of old items' indexes to their new indexes
@@ -1726,13 +1747,18 @@ void CGedtreeApp::Copy(CGedtreeDoc* pDocFrom, CGedtreeDoc* pDocTo)
 	POSITION pos;
 	int i;
 
+	CString xys("");
 	// find all indis to add
 	for (i = 0; i<pDocFrom->m_rIndividual.GetSize(); i++)
 	{
 		CIndividual& indi = pDocFrom->m_rIndividual[i];
-		if (indi.m_bSelected)
+		if (indi.m_bSelected) {
 			mapIndi[i] = -1;
+			CString xy(indi.GetXY(indi.m_rectFrame.TopLeft()));
+			xys += xy + "\r\n";
+		}
 	}
+	putIntoWindowsClipboard(xys);
 
 	// look for things the indis *point to*, and copy
 	// *those* things into the new doc as well
