@@ -37,7 +37,7 @@ Alternatively, if you have your family tree data in another program, you can try
 
 ### Drop-Line Chart
 
-The first time you open a GEDCOM file, the individuals will automatically be positioned on the drop-line chart, but they will probably not be very well organized. So the first task you may want to perform is to move the individuals around (by clicking and dragging them) and clean up the chart. (Note: if you have the DEMO version of GRO, remember you CAN'T SAVE any of your changes, so don't do too much work. Of course the full version of GRO lets you save changes.)
+The first time you open a GEDCOM file, the individuals will automatically be positioned on the drop-line chart, but they will probably not be very well organized. So the first task you may want to perform is to move the individuals around (by clicking and dragging them) and clean up the chart.
 
 ### Individual
 
