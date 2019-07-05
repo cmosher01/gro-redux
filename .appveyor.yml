@@ -5,7 +5,7 @@ build:
   project: gedtree.sln
 artifacts:
   - name: exefile
-    path: 'Release/*.exe'
+    path: 'Debug/*.exe'
 deploy:
   description: Latest stable release
   provider: GitHub
