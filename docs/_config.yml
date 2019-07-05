@@ -1,0 +1,8 @@
+title: "Genealogy Research Organizer"
+email: cmosher01@gmail.com
+description: Copyright © 1998–2017, Christopher Alan Mosher, Shelton, Connecticut, USA.
+repository: https://github.com/cmosher01/gro-redux
+github_username: cmosher01
+baseurl: /gro-redux
+markdown: kramdown
+theme: minima
