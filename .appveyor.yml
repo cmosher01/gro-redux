@@ -1,8 +1,8 @@
 ---
-platform:
-  - x64
-configuration:
-  - Debug
+platform: x86
+configuration: Debug
+build:
+  project: gedtree.sln
 artifacts:
   - name: exefile
     path: 'Release/*.exe'
