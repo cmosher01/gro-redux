@@ -15,6 +15,18 @@ Just double-click an individual to see all of his or her events, attributes, par
 
 
 
+# Download
+
+[![Latest Release](https://img.shields.io/github/release-pre/cmosher01/gro-redux.svg)](https://github.com/cmosher01/gro-redux/releases/latest)
+
+[![Last Commit](https://img.shields.io/github/last-commit/cmosher01/gro-redux.svg)](https://github.com/cmosher01/gro-redux)
+
+
+
+
+
+
+
 # Getting Started
 
 The first time you run GRO, you can either create a new empty gedcom file, or open an existing one. If you create a new empty tree (menu: File/New), you can add individuals by choosing the menu Edit/New Individual, or by right-clicking on the chart and choosing New Individual.
@@ -73,7 +85,7 @@ The drop-line chart allows you to copy and paste individuals (from one Gedcom do
 
 #### Fonts and Scaling
 
-The drop-line chart can be re-scaled when a different font (or size) is chosen. In versions of GRO prior to V1.4, increasing the font size would not move people over, and therefore would cause them to overlap. As of V1.4, an option is provided to re-scale the chart when the font is changed. The checkbox is on the Options Font dialog (at the bottom), and is turned on by default. In addition to rescaling the chart, you can simply "zoom-out" to get a better view of the chart as a whole. This will not permanently change the chart's scaling, it will simply shrink it on the screen for you to look at. Choose from the menu: View | Scale, and you can enter the scale you want to zoom out to. For example, enter 10 (meaning 1:10 scale) to display the chart at one-tenth the actual size. When zoomed out, you can move individuals around, and double-click on them, just as if you weren't zoomed out. To return to normal (1 to 1) scale, there is a convenient command on the menu: View | Normal 1:1 Scale. When returning to 1:1 scale, the chart will automatically scroll to the selected individual (just as a convenience).
+The drop-line chart can be re-scaled when a different font (or size) is chosen. In versions of GRO prior to V1.4, increasing the font size would not move people over, and therefore would cause them to overlap. As of V1.4, an option is provided to re-scale the chart when the font is changed. The checkbox is on the Options Font dialog (at the bottom), and is turned on by default. In addition to rescaling the chart, you can simply "zoom-out" to get a better view of the chart as a whole. This will not permanently change the chart's scaling, it will simply shrink it on the screen for you to look at. Choose from the menu: View > Scale, and you can enter the scale you want to zoom out to. For example, enter 10 (meaning 1:10 scale) to display the chart at one-tenth the actual size. When zoomed out, you can move individuals around, and double-click on them, just as if you weren't zoomed out. To return to normal (1 to 1) scale, there is a convenient command on the menu: View > Normal 1:1 Scale. When returning to 1:1 scale, the chart will automatically scroll to the selected individual (just as a convenience).
 
 #### Dim and Show
 
