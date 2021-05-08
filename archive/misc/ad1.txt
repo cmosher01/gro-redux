@@ -1,0 +1,31 @@
+There's a new genealogy program available now. 
+Genealogy Research Organizer (GRO). Finally! A 
+program that shows individuals on a drop-line 
+chart in a window. You can move the individuals 
+wherever you want! And the lines connecting them 
+re-draw automatically.
+
+Now you can visualize your family tree and lay it 
+out the way you want to.
+
+Double-click on a person, and a window opens up 
+where you edit all their information.
+
+Of course, we all know how important it is to cite 
+our sources. And so many genealogy programs today 
+still do not let you store your source 
+information. GRO lets you store a citation for 
+each piece of information you gather!
+
+All the data is stored in GEDCOM 5.5 standard 
+format, so there's no worry about dealing with 
+proprietary binary files that you can't edit.
+
+A FREE demo version of GRO is available for 
+download at the official GRO web site:
+<A HREF="http://go.to/gro">http://go.to/gro</A>
+Remember, just Go To GRO!
+
+If you like the program, you can order the full 
+version on-line (through V-Share's Secure Server) 
+and download it within minutes!
