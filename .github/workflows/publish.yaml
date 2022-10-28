@@ -16,4 +16,10 @@ jobs:
 
       - uses: "microsoft/setup-msbuild@v1.1.3"
 
-      - run: "msbuild gedtree.sln"
+      - shell: "powershell"
+        run: |
+          Invoke-WebRequest -Method Get -Uri https://go.microsoft.com/fwlink/p/?LinkId=323507 -OutFile sdksetup.exe -UseBasicParsing
+          Start-Process -Wait sdksetup.exe -ArgumentList "/q", "/norestart", "/features", "OptionId.WindowsDesktopSoftwareDevelopmentKit", "OptionId.NetFxSoftwareDevelopmentKit"
+
+      - run: |
+          msbuild gedtree.sln
