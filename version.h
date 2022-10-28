@@ -9,5 +9,5 @@
 //
 
 #define VERSION_MAJOR 1
-#define VERSION_MINOR 5
-#define RELEASE_DATE "11 Dec 2016"
+#define VERSION_MINOR 6
+#define RELEASE_DATE "2022-10-28"

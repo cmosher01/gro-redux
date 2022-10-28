@@ -1,8 +1,8 @@
 ---
 on:
   push:
-    branches:
-      - "master"
+    tags:
+      - "*"
 
 jobs:
   "publish":
@@ -16,10 +16,10 @@ jobs:
 
       - uses: "microsoft/setup-msbuild@v1.1.3"
 
-      # - shell: "powershell"
-      #   run: |
-      #     Invoke-WebRequest -Method Get -Uri https://go.microsoft.com/fwlink/p/?LinkId=323507 -OutFile sdksetup.exe -UseBasicParsing
-      #     Start-Process -Wait sdksetup.exe -ArgumentList "/q", "/norestart", "/features", "OptionId.WindowsDesktopSoftwareDevelopmentKit", "OptionId.NetFxSoftwareDevelopmentKit"
+      - run: "msbuild gedtree.sln -maxcpucount"
 
-      - run: |
-          msbuild gedtree.sln
+      - uses: "svenstaro/upload-release-action@v2"
+        with:
+          file: "Debug/GRO.exe"
+          asset_name: "gro-$tag.exe"
+          overwrite: true
