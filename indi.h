@@ -7,6 +7,7 @@
 #include "datevalue.h"
 #include "gedrecord.h"
 #include "myrect.h"
+#include <iostream>
 #include <list>
 #include <utility>
 

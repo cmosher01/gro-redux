@@ -6,6 +6,7 @@
 class CIndividual;
 class CMyDC;
 #include "myrect.h"
+#include <iostream>
 #include <utility>
 
 class CFamily : public CGedRecord
