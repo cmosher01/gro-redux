@@ -21,7 +21,7 @@ jobs:
           mkdir build
           cd build
           cmake ..
-          cmake --build . --config Release -- //p:CharacterSet=Unicode
+          cmake --build . --config Release -- /p:CharacterSet=Unicode
           cpack -B ../cpack
 
       - uses: "softprops/action-gh-release@v1"
